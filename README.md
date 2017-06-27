@@ -9,7 +9,7 @@ An overview of important files and configurations for the applications
 Also know as 'dot' files, these are the build and build configuration files for the application
 
  * <i>bin/</i> - shell scripts for continuous integration and build environments
- * <i>.babelrc</i> - configuration file for Jest Babel preproccessor
+ * <i>.babelrc</i> - configuration file for Babel preproccessor
  * <i>.editorconfig</i> - configuration file for EditorConfig IDE plugin
  * <i>.eslintr</i>c - linting rules for spec and build files
  * <i>package.json</i> - NPM / Yarn dependency configuration file, for
@@ -44,13 +44,13 @@ Note: It is recommended that a Javascript based IDE is used, like Webstorm, as t
 
 ### Steps
 
-1. If you don't already have it, download and install NodeJS 4.x (comes with NPM).
+1. If you don't already have it, download and install NodeJS >=6.4.0 (comes with NPM).
 
 2. This project favors Yarn, so make sure you have the latest by updating
 it after installing Node by running
 
   ```
-  $ npm install -g yarn@0.21.3
+  $ npm install -g yarn@0.24.6
   ```
 
 3. Now install the build and application dependencies by running

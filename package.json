@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rimraf ./build && rimraf ./reports && mkdir ./reports && mkdir ./reports/test-results",
     "prebuild": "npm run clean",
-    "build": "eslint *.js **/**/*.spec.jsx"
+    "lint": "eslint *.js **/**/*.spec.jsx"
+    "build": "npm run lint"
   },
   "repository": {
     "type": "git",

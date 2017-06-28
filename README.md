@@ -1,7 +1,9 @@
 # react-seed
+
 A seed / starter repo for React based UI applications
 
 ## Project Layout
+
 An overview of important files and configurations for the applications
 
 ### Root Files ('dot' files)
@@ -15,9 +17,7 @@ Also know as 'dot' files, these are the build and build configuration files for 
  * <i>package.json</i> - NPM / Yarn dependency configuration file, for
  build related dependencies and defines all runnable scripts and commands
 
-
 ### Application Files
-
 
  Application code, including unit tests. Directories are intended to be
  kept as flat as possible with a B.O.F. (birds of a feather) organization.
@@ -46,14 +46,14 @@ Note: It is recommended that a Javascript based IDE is used, like Webstorm, as t
 
 1. If you don't already have it, download and install NodeJS >=6.4.0 (comes with NPM).
 
-2. This project favors Yarn, so make sure you have the latest by updating
+1. This project favors Yarn, so make sure you have the latest by updating
 it after installing Node by running
 
   ```
   $ npm install -g yarn@0.24.6
   ```
 
-3. Now install the build and application dependencies by running
+1. Now install the build and application dependencies by running
 
   ```
   $ yarn install

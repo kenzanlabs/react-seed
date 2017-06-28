@@ -58,8 +58,6 @@ react-seed
     │   file022.txt
 ```
 
-
-
 ## Dependency Management
 All dependencies added or removed from the project must be done so through yarn
 

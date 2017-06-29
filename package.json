@@ -4,11 +4,11 @@
   "description": "This is the seed repo for FrontEnd project for Kenzan.com - Linux.com learning series.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run lint && webpack --config ./webpack.config.prod.js -p --progress",
+    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js -p --progress",
     "clean": "rimraf ./build && rimraf ./reports && mkdir ./reports && mkdir ./reports/test-results",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js --progress",
     "lint": "eslint *.js **/**/*.spec.jsx",
-    "serve": "webpack --config ./webpack.config.prod.js -p --progress && http-server ./build -o"
+    "serve": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js -p --progress && http-server ./build -o"
   },
   "repository": {
     "type": "git",

@@ -4,10 +4,12 @@
   "description": "This is the seed repo for FrontEnd project for Kenzan.com - Linux.com learning series.",
   "main": "index.js",
   "scripts": {
+    "build": "npm run lint && webpack --config ./webpack.config.prod.js -p --progress",
     "clean": "rimraf ./build && rimraf ./reports && mkdir ./reports && mkdir ./reports/test-results",
-    "prebuild": "npm run clean",
+    "develop": "webpack-dev-server --open --config ./webpack.config.develop.js --progress",
     "lint": "eslint *.js **/**/*.spec.jsx",
-    "build": "npm run lint"
+    "prebuild": "npm run clean",
+    "serve": "webpack --config ./webpack.config.prod.js -p --progress && http-server ./build -o"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,13 @@
   "devDependencies": {
     "babel-preset-env": "^1.5.2",
     "eslint": "^4.1.1",
-    "rimraf": "^2.6.1"
+    "html-webpack-plugin": "^2.29.0",
+    "http-server": "^0.10.0",
+    "rimraf": "^2.6.1",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0",
+    "webpack-md5-hash": "^0.0.5",
+    "webpack-merge": "^4.1.0"
   }
 }

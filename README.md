@@ -16,9 +16,9 @@ Also know as 'dot' files, these are the build and build configuration files for 
  * <i>.eslintr</i>c - linting rules for spec and build files
  * <i>package.json</i> - NPM / Yarn dependency configuration file, for
  build related dependencies and defines all runnable scripts and commands
- * webpack.config.common.js - webpack config for managing shared webpack configurations
- * webpack.config.develop.js - webpack config for local development
- * webpack.config.prod.js - webpack config for production builds
+ * <i>webpack.config.common.js<i/> - webpack config for managing shared webpack configurations
+ * <i>webpack.config.develop.js<i/> - webpack config for local development
+ * <i>webpack.config.prod.js<i/> - webpack config for production builds
 
 ## Project Setup
 Note: It is recommended that a Javascript based IDE is used, like Webstorm, as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
@@ -62,30 +62,25 @@ react-seed
 ```
 
 ## Tasks
-This project uses Webpack as the build tool, exectuted via NPM scripts.
+This project uses Webpack as the build tool, executed via NPM scripts.
 All available tasks are in the scripts section of package.json
 
 ### Development
-This will start up a Node (Express) server which watches for changes and 'redeploys' as needed.
+This will start up a development server using
+[webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+which watches for changes and 're-deploys' as needed.
 ```
 $ yarn run develop
 ```
 
-See it in the browser by opening up
+Webpack-dev-server will automatically open a browser window to ```localhost:9000```.
 
-```
-http://localhost:8080
-```
 ### Production
 This is the production build task for the project. It is used prior to
-deploying to an environment and build a production version of the application.
+deploying to an environment and builds a production version of the application.
+This command cal also be used to serve a production build locally, it will automatically
+open a browser window to ```localhost:9000```.
 
-```
-$ yarn run build
-```
-
-#### Demo
-To serve a production build locally , like for a demo run:
 ```
 $ yarn run serve
 ```
@@ -95,16 +90,16 @@ Note: It is recommended that a Javascript based IDE is used, like Webstorm, as t
 
 ### Steps
 
-1. If you don't already have it, download and install NodeJS >=6.4.0 (comes with NPM).
+1. If you don't already have it, download and install NodeJS >=6.4.0, which comes with npm.
 
-2. This project favors Yarn, so make sure you have the latest by updating
+1. This project favors Yarn, so make sure you have the latest by updating
 it after installing Node by running
 
   ```
   $ npm install -g yarn@0.24.6
   ```
 
-3. Now install the build and application dependencies by running
+1. Now install the build and application dependencies by running
 
   ```
   $ yarn install

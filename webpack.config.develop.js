@@ -4,7 +4,7 @@ const webpackMerge = require('webpack-merge');
 module.exports = webpackMerge(commonConfig, {
 
   devServer: {
-    port: 8080,
+    port: 9000,
     host: 'localhost',
     historyApiFallback: true,
     watchOptions: {

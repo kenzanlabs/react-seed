@@ -61,6 +61,26 @@ react-seed
     │   file022.txt
 ```
 
+## Project Setup
+Note: It is recommended that a Javascript based IDE is used, like Webstorm, as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
+
+### Steps
+
+1. If you don't already have it, download and install NodeJS >=6.4.0, which comes with npm.
+
+1. This project favors Yarn, so make sure you have the latest by updating
+it after installing Node by running
+
+  ```
+  $ npm install -g yarn@0.24.6
+  ```
+
+1. Now install the build and application dependencies by running
+
+  ```
+  $ yarn install
+  ```
+
 ## Tasks
 This project uses Webpack as the build tool, executed via NPM scripts.
 All available tasks are in the scripts section of package.json
@@ -84,26 +104,6 @@ open a browser window to ```localhost:9000```.
 ```
 $ yarn run serve
 ```
-
-## Project Setup
-Note: It is recommended that a Javascript based IDE is used, like Webstorm, as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
-
-### Steps
-
-1. If you don't already have it, download and install NodeJS >=6.4.0, which comes with npm.
-
-1. This project favors Yarn, so make sure you have the latest by updating
-it after installing Node by running
-
-  ```
-  $ npm install -g yarn@0.24.6
-  ```
-
-1. Now install the build and application dependencies by running
-
-  ```
-  $ yarn install
-  ```
 
 ## Dependency Management
 All dependencies added or removed from the project must be done so through yarn

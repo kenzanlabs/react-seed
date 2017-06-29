@@ -20,26 +20,6 @@ Also know as 'dot' files, these are the build and build configuration files for 
  * <i>webpack.config.develop.js<i/> - webpack config for local development
  * <i>webpack.config.prod.js<i/> - webpack config for production builds
 
-## Project Setup
-Note: It is recommended that a Javascript based IDE is used, like Webstorm, as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
-
-### Steps
-
-1. If you don't already have it, download and install NodeJS >=6.4.0 (comes with NPM).
-
-1. This project favors Yarn, so make sure you have the latest by updating
-it after installing Node by running
-
-  ```
-  $ npm install -g yarn@0.24.6
-  ```
-
-1. Now install the build and application dependencies by running
-
-  ```
-  $ yarn install
-  ```
-
 ### Application Files
 
  Application code, including unit tests. Directories are intended to be

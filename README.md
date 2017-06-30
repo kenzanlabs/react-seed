@@ -82,10 +82,13 @@ deploying to an environment and builds a production version of the application.
 $ yarn run build
 ```
 
-To serve a production build locally on ```localhost:9000``` run:
+### Demo
+To demo a production build locally on ```localhost:9000``` run:
 ```
 $ yarn run serve
 ```
+** Note: it is recommended you run this command from the master branch
+or a tag. By Default this proxies with the webpack-dev-server proxy. **
 
 ## Dependency Management
 All dependencies added or removed from the project must be done so through yarn

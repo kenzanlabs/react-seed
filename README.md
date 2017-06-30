@@ -77,9 +77,12 @@ webpack-dev-server will automatically open a browser window to ```localhost:9000
 ### Production
 This is the production build task for the project. It is used prior to
 deploying to an environment and builds a production version of the application.
-This command cal also be used to serve a production build locally, it will automatically
-open a browser window to ```localhost:9000```.
 
+```
+$ yarn run build
+```
+
+To serve a production build locally on ```localhost:9000``` run:
 ```
 $ yarn run serve
 ```

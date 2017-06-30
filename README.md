@@ -1,6 +1,25 @@
 # react-seed
 
 A seed / starter repo for React based UI applications
+## Project Setup
+Note: It is recommended that a Javascript based IDE is used, like Webstorm, as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
+
+### Steps
+
+1. If you don't already have it, download and install NodeJS >=6.4.0, which comes with npm.
+
+1. This project favors Yarn, so make sure you have the latest by updating
+it after installing Node by running
+
+  ```
+  $ npm install -g yarn@0.24.6
+  ```
+
+1. Now install the build and application dependencies by running
+
+  ```
+  $ yarn install
+  ```
 
 ## Project Layout
 
@@ -41,26 +60,6 @@ react-seed
     │   file022.txt
 ```
 
-## Project Setup
-Note: It is recommended that a Javascript based IDE is used, like Webstorm, as they have a lot of the code quality and syntax tooling supported as plugins, often times right out of the box.
-
-### Steps
-
-1. If you don't already have it, download and install NodeJS >=6.4.0, which comes with npm.
-
-1. This project favors Yarn, so make sure you have the latest by updating
-it after installing Node by running
-
-  ```
-  $ npm install -g yarn@0.24.6
-  ```
-
-1. Now install the build and application dependencies by running
-
-  ```
-  $ yarn install
-  ```
-
 ## Tasks
 This project uses Webpack as the build tool, executed via NPM scripts.
 All available tasks are in the scripts section of package.json
@@ -73,7 +72,7 @@ which watches for changes and 're-deploys' as needed.
 $ yarn run develop
 ```
 
-Webpack-dev-server will automatically open a browser window to ```localhost:9000```.
+webpack-dev-server will automatically open a browser window to ```localhost:9000```.
 
 ### Production
 This is the production build task for the project. It is used prior to

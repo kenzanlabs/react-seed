@@ -8,7 +8,7 @@ const chalk = require('chalk');
 module.exports = {
   entry: {
     index: './src/index.tsx',
-    vendor: './src/vendor.tsx'
+    vendor: './src/vendor.ts'
   },
 
   output: {

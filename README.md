@@ -90,6 +90,15 @@ $ yarn run serve
 ** Note: it is recommended you run this command from the master branch
 or a tag. By Default this proxies with the webpack-dev-server proxy. **
 
+### Tests
+To run unit tests run:
+```
+$ yarn run test
+```
+** Note: this command will use <i>jest.cofig.json</i> as a configuration
+file for unit tests. It will display a percentage of the files covered
+by the unit tests.
+
 ## Dependency Management
 All dependencies added or removed from the project must be done so through yarn
 

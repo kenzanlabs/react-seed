@@ -51,13 +51,13 @@ react-seed
 │   │
 │   │
 │   └───subfolder1
-│       │   file111.txt
-│       │   file112.txt
+│       │   file111.tsx
+│       │   file111.spec.tsx
 │       │   ...
 │
 └───folder2
-    │   file021.txt
-    │   file022.txt
+    │   file021.tsx
+    │   file022.spec.tsx
 ```
 
 ## Tasks

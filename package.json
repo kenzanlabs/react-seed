@@ -4,15 +4,16 @@
   "description": "This is the seed repo for FrontEnd project for Kenzan.com - Linux.com learning series.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js -p --progress",
+    "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js -p",
     "clean": "rimraf ./build && rimraf ./reports && mkdir ./reports && mkdir ./reports/test-results",
-    "develop": "webpack-dev-server --open --config ./webpack.config.develop.js --progress",
-    "lint": "eslint *.js **/**/*.spec.jsx",
-    "serve": "npm run build && http-server ./build -o"
+    "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' -t stylish",
+    "serve": "npm run build && http-server ./build -o",
+    "test": "jest --coverage --config ./jest.config.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kenzanlabs/react-seed.git"
+    "url": "githttps://github.com/kenzanlabs/react-seed.git"
   },
   "keywords": [
     "kenzanlabs"
@@ -20,15 +21,45 @@
   "author": "rhernandez@kenzan.com",
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "@types/react": "^15.0.33",
+    "@types/react-dom": "^15.5.1",
+    "@types/react-router": "^4.0.12",
+    "@types/react-router-dom": "^4.0.5",
+    "awesome-typescript-loader": "^3.2.1",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "chalk": "^2.0.1",
     "eslint": "^4.1.1",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.29.0",
     "http-server": "^0.10.0",
+    "jest": "^20.0.4",
+    "jest-junit-reporter": "^1.1.0",
+    "progress-bar-webpack-plugin": "^1.9.3",
     "rimraf": "^2.6.1",
+    "source-map-loader": "^0.2.1",
+    "style-loader": "^0.18.2",
+    "ts-jest": "^20.0.6",
+    "tslint": "^5.4.3",
+    "tslint-loader": "^3.5.3",
+    "tslint-react": "^3.0.0",
+    "typescript": "^2.4.1",
     "uglifyjs-webpack-plugin": "^0.4.6",
+    "url-loader": "^0.5.9",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0",
     "webpack-md5-hash": "^0.0.5",
     "webpack-merge": "^4.1.0"
+  },
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1"
   }
 }

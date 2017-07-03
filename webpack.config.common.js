@@ -7,8 +7,8 @@ const chalk = require('chalk');
 
 module.exports = {
   entry: {
-    index: './src/index.tsx',
-    vendor: './src/vendor.ts'
+    index: './index.tsx',
+    vendor: './vendor.ts'
   },
 
   output: {
@@ -17,6 +17,8 @@ module.exports = {
     sourceMapFilename: '[name].map',
     chunkFilename: '[id].chunk.js'
   },
+
+  context: path.resolve(__dirname, "src"),
 
   // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',
@@ -67,7 +69,7 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html-loader',
-        exclude: path.join(__dirname, './src/index.html')
+        exclude: path.join(__dirname, './index.html')
       }, {
         test: /\.scss/,
         use: ExtractTextPlugin.extract({
@@ -83,7 +85,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'index.html',
       chunksSortMode: 'dependency'
     }),
     new webpack.optimize.CommonsChunkPlugin({

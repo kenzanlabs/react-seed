@@ -8,7 +8,8 @@ const chalk = require('chalk');
 module.exports = {
   entry: {
     index: './index.tsx',
-    vendor: './vendor.ts'
+    vendor: './vendor.ts',
+    bootstrap: 'bootstrap-loader'
   },
 
   output: {
@@ -34,10 +35,10 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
-        exclude: /node_modules/
+        exclude: path.join(__dirname, 'node_modules')
       },
       {
-        test: /\.tsx$/,
+        test: /\.tsx?$/,
         enforce: 'pre',
         loader: 'tslint-loader',
         exclude: /node_modules/
@@ -53,14 +54,6 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader?modules', 'postcss-loader']
-      },
-      {
-        test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader?modules', 'postcss-loader', 'sass-loader']
-      },
-      {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
           'file-loader'
@@ -70,15 +63,28 @@ module.exports = {
         test: /\.html$/,
         loader: 'html-loader',
         exclude: path.join(__dirname, './index.html')
-      }, {
+      },
+      {
         test: /\.scss/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: 'css-loader!sass-loader'
         })
-      }, {
+      },
+      {
+        test: /\.css/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
+      },
+      {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
       }
     ]
   },
@@ -98,6 +104,12 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'styles.css',
       allChunks: true
+    }),
+    new webpack.ProvidePlugin({ // inject ES5 modules as global vars
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      Tether: 'tether'
     })
   ]
 };

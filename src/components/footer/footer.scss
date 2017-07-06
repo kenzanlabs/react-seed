@@ -1,0 +1,9 @@
+$copyright-margin: 10px auto;
+$black: #000;
+$white: #ffffff;
+
+p.copyright-text {
+  margin: $copyright-margin;
+  text-align: center;
+  color: $white;
+}

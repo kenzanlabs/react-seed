@@ -1,28 +1,15 @@
+import '../node_modules/bootstrap/scss/bootstrap.scss';
+
 import * as React from 'react';
 import {render} from 'react-dom';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
-// TODO, sample components (App, About) to be removed in next pr
-// tslint:disable-next-line:variable-name
-const App = () => (
-  <div>
-    <h1>Hello from App!</h1>
-    <Link to='/'>App</Link> <br/>
-    <Link to='/about'>About</Link>
-    <Route path='/about' component={About}></Route>
-  </div>
-);
-
-// tslint:disable-next-line:variable-name
-const About = () => (
-  <div>
-    <h2>Hello from About!</h2>
-  </div>
-);
+import Bootstrap from './components/bootstrap/bootstrap';
 
 render(
   <Router>
-    <Route path='/' component={App}></Route>
+    {/*here we can also just add the component as <Bootstrap/> and handle routing internally*/}
+    <Route path='/' component={Bootstrap}></Route>
   </Router>,
   document.getElementById('app')
 );

@@ -5,8 +5,14 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import Navigation from '../navigation/navigation';
 import Footer from '../footer/footer';
 
-// tslint:disable-next-line:no-any
-export default class Bootstrap extends React.Component<any, any> {
+
+interface BootstrapStateInterface {
+}
+
+interface BootstrapPropsInterface {
+}
+
+export default class Bootstrap extends React.Component<BootstrapPropsInterface, BootstrapStateInterface> {
 
   render() {
 

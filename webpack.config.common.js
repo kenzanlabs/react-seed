@@ -91,7 +91,7 @@ module.exports = {
       filename: 'styles.css',
       allChunks: true
     }),
-    new webpack.ProvidePlugin({ // inject ES5 modules as global vars
+    new webpack.ProvidePlugin({ // exposes non-modular vendor globals to webpack
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',

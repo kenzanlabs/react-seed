@@ -11,25 +11,23 @@ class Navigation extends React.Component<NavigationPropsInterface, NavigationSta
 
   render() {
     return (
-      <div className='navigation'>
-        <nav className='navbar navbar-toggleable-md navbar-inverse bg-inverse navbar-static-top'>
-          <div className='container'>
-            <button className='navbar-toggler navbar-toggler-right' type='button'
-                    data-toggle='collapse' data-target='#navbarSupportedContent'
-                    aria-controls='navbarSupportedContent'
-                    aria-expanded='false' aria-label='Toggle navigation'>
-              <span className='navbar-toggler-icon'></span>
-            </button>
-            <Link className='navbar-brand' to='/'>React Seed</Link>
-            <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-              <ul className='nav navbar-nav navbar-right'>
-                <li className='nav-item'><Link to='/'>Home</Link></li>
-                <li className='nav-item'><Link to='/about'>About</Link></li>
-              </ul>
-            </div>
+      <nav className='navbar navbar-toggleable-md navbar-inverse bg-inverse w-100'>
+        <div className='container'>
+          <button className='navbar-toggler navbar-toggler-right' type='button'
+                  data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent'
+                  aria-expanded='false' aria-label='Toggle navigation'>
+            <span className='navbar-toggler-icon'></span>
+          </button>
+          <Link className='navbar-brand' to='/'>React Seed</Link>
+
+          <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+            <ul className='nav navbar-nav ml-auto'>
+              <li className='nav-item pull-xs-right'><Link className='nav-link' to='/'>Home</Link></li>
+              <li className='nav-item pull-xs-right'><Link className='nav-link' to='/about'>About</Link></li>
+            </ul>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     );
   }
 

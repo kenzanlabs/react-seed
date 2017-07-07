@@ -1,11 +1,14 @@
 import * as React from 'react';
 import './footer.scss';
 
-interface BootstrapStateInterface {
+interface FooterStateInterface {
   copyright: string;
 }
 
-export default class Footer extends React.Component<{}, BootstrapStateInterface> {
+interface FooterPropsInterface {
+}
+
+export default class Footer extends React.Component<FooterPropsInterface, FooterStateInterface> {
   constructor() {
     super();
 
@@ -19,9 +22,9 @@ export default class Footer extends React.Component<{}, BootstrapStateInterface>
 
   render() {
     return (
-      <footer>
-        <div className='navbar-inverse bg-inverse navbar-fixed-bottom'>
-          <p className='text-muted text-center my-3'> {this.state.copyright}
+      <footer className='w-100'>
+        <div className='navbar-inverse bg-inverse fixed-bottom'>
+          <p className='text-muted text-center my-2'> {this.state.copyright}
             <br/>
             <a href='http://www.github.com/kenzanlabs'>&copy; Kenzanlabs</a>
           </p>

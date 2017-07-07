@@ -8,8 +8,7 @@ const chalk = require('chalk');
 module.exports = {
   entry: {
     index: './index.tsx',
-    vendor: './vendor.ts',
-    bootstrap: 'bootstrap-loader'
+    vendor: './vendor.ts'
   },
 
   output: {
@@ -54,12 +53,6 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [
-          'file-loader'
-        ]
-      },
-      {
         test: /\.html$/,
         loader: 'html-loader',
         exclude: path.join(__dirname, './index.html')
@@ -76,7 +69,7 @@ module.exports = {
         loader: 'url-loader?limit=10000&mimetype=application/font-woff'
       },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(ttf|eot|svg|jpe?g|png|gif)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader'
       }
     ]

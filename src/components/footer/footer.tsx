@@ -20,10 +20,10 @@ export default class Footer extends React.Component<{}, BootstrapStateInterface>
   render() {
     return (
       <footer>
-        <div className='navbar navbar-toggleable-md navbar-inverse bg-inverse navbar-fixed-bottom'>
-          <p className='copyright-text'> {this.state.copyright}
+        <div className='navbar-inverse bg-inverse navbar-fixed-bottom'>
+          <p className='text-muted text-center my-3'> {this.state.copyright}
             <br/>
-            <a href='http://www.github.com/kenzanlabs'>Kenzanlabs</a>
+            <a href='http://www.github.com/kenzanlabs'>&copy; Kenzanlabs</a>
           </p>
         </div>
       </footer>

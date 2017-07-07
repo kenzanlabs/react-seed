@@ -65,17 +65,10 @@ module.exports = {
         exclude: path.join(__dirname, './index.html')
       },
       {
-        test: /\.scss/,
+        test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader!sass-loader'
-        })
-      },
-      {
-        test: /\.css/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
+          use: [ 'css-loader', 'sass-loader' ]
         })
       },
       {

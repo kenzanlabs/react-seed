@@ -12,7 +12,7 @@ class Navigation extends React.Component<NavigationPropsInterface, NavigationSta
   render() {
     return (
       <div className='navigation'>
-        <nav className='navbar navbar-toggleable-md navbar-inverse bg-inverse navbar-static-top pull-md-right'>
+        <nav className='navbar navbar-toggleable-md navbar-inverse bg-inverse navbar-static-top'>
           <div className='container'>
             <button className='navbar-toggler navbar-toggler-right' type='button'
                     data-toggle='collapse' data-target='#navbarSupportedContent'

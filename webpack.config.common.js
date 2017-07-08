@@ -80,17 +80,22 @@ module.exports = {
       template: 'index.html',
       chunksSortMode: 'dependency'
     }),
+
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['index', 'vendor']
+      name: ['common'],
+      chunks: ['vendor', 'index']
     }),
+
     new ProgressBarPlugin({
       format: chalk.blue('  build ') + '[:bar] ' + chalk.green.bold(':percent') + ' (:elapsed seconds)',
       clear: false
     }),
+
     new ExtractTextPlugin({
       filename: 'styles.css',
       allChunks: true
     }),
+
     new webpack.ProvidePlugin({ // exposes non-modular vendor globals to webpack
       $: 'jquery',
       jQuery: 'jquery',

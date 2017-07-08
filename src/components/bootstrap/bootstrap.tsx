@@ -1,10 +1,10 @@
+import 'font-awesome/css/font-awesome.css';
 import './bootstrap.scss';
 
 import * as React from 'react';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import Navigation from '../navigation/navigation';
 import Footer from '../footer/footer';
-
 
 interface BootstrapStateInterface {
 }

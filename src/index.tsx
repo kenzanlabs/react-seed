@@ -5,11 +5,28 @@ import {render} from 'react-dom';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Bootstrap from './components/bootstrap/bootstrap';
+import ContactList from './components/contactList/contactList';
 
 // tslint:disable-next-line
 const App = () => {
+  const contacts = [
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      middleName: 'E',
+      phone: '444-333-4444',
+      email: 'jDoe@email.com'
+    },
+    {
+      firstName: 'Jane',
+      lastName: 'Lou',
+      phone: '444-333-4444',
+      email: 'janeLou@email.com'
+    }
+  ];
+
   return (
-    <h1>Content</h1>
+    <ContactList contacts={contacts}/>
   );
 };
 

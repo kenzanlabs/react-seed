@@ -4,7 +4,7 @@ import './contactList.scss';
 import ContactInfo from '../contactInfo/contactInfo';
 
 
-interface contactListInterface {
+interface ContactListInterface {
   firstName: string;
   middleName?: string;
   email?: string;
@@ -14,9 +14,11 @@ interface contactListInterface {
 }
 
 interface ContactListPropsInterface {
-  contacts: contactListInterface[];
+  contacts: ContactListInterface[];
 }
 
+// TODO, naming convention for variables to be exported TS
+// tslint:disable-next-line
 const ContactList: React.SFC<ContactListPropsInterface> = (props) => {
   return (
     <div className='list-group contact-list'>

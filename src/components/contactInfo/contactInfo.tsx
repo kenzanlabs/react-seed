@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './contactInfo.scss';
 
-interface contactInfoInterface {
+interface ContactInfoInterface {
   firstName: string;
   middleName?: string;
   email?: string;
@@ -10,11 +10,12 @@ interface contactInfoInterface {
   image?: string;
 }
 
-interface contactInfoPropsInterface {
-  contact: contactInfoInterface;
+interface ContactInfoPropsInterface {
+  contact: ContactInfoInterface;
 }
 
-const ContactInfo: React.SFC<contactInfoPropsInterface> = (props) => {
+// tslint:disable-next-line
+const ContactInfo: React.SFC<ContactInfoPropsInterface> = (props) => {
   const {firstName, middleName, email, lastName, phone, image} = props.contact;
   const userIcon = <i className='fa fa-user-circle-o fa-4x mx-auto' aria-hidden='true'></i>;
 

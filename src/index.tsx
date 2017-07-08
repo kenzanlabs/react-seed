@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Bootstrap from './components/bootstrap/bootstrap';
 import ContactList from './components/contactList/contactList';
-import ContactListForm from './components/contactListForm/contactListForm'
+import ContactListForm from './components/contactListForm/contactListForm';
 
 
 // tslint:disable-next-line

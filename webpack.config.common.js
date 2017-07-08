@@ -82,8 +82,7 @@ module.exports = {
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['common'],
-      chunks: ['vendor', 'index']
+      name: ['common']
     }),
 
     new ProgressBarPlugin({

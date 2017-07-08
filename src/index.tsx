@@ -6,6 +6,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Bootstrap from './components/bootstrap/bootstrap';
 import ContactList from './components/contactList/contactList';
+import ContactListForm from './components/contactListForm/contactListForm'
+
 
 // tslint:disable-next-line
 const App = () => {
@@ -22,6 +24,19 @@ const App = () => {
       lastName: 'Lou',
       phone: '444-333-4444',
       email: 'janeLou@email.com'
+    },
+    {
+      firstName: 'Sarah',
+      lastName: 'Smith',
+      middleName: 'A',
+      phone: '444-333-4444',
+      email: 'sSmith@email.com'
+    },
+    {
+      firstName: 'Ed',
+      lastName: 'Lou',
+      phone: '444-333-4444',
+      email: 'eLou@email.com'
     }
   ];
 
@@ -33,7 +48,7 @@ const App = () => {
 // tslint:disable-next-line
 const About = () => {
   return (
-    <h1>About</h1>
+    <ContactListForm />
   );
 };
 

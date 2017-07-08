@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js -p",
     "clean": "rimraf ./build && rimraf ./reports && mkdir ./reports && mkdir ./reports/test-results",
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}' -t stylish",
+    "lint": "eslint ./*.js && tslint -c tslint.json 'src/**/*.{ts,tsx}' -t stylish",
     "serve": "npm run build && http-server ./build -o",
     "test": "jest --coverage --config ./jest.config.json"
   },

@@ -18,7 +18,7 @@ module.exports = {
     chunkFilename: '[id].chunk.js'
   },
 
-  context: path.resolve(__dirname, "src"),
+  context: path.resolve(__dirname, 'src'),
 
   // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',
@@ -61,7 +61,7 @@ module.exports = {
         test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [ 'css-loader', 'sass-loader' ]
+          use: ['css-loader', 'sass-loader']
         })
       },
       {
@@ -92,9 +92,7 @@ module.exports = {
       allChunks: true
     }),
     new webpack.ProvidePlugin({ // exposes non-modular vendor globals to webpack
-      $: 'jquery',
       jQuery: 'jquery',
-      'window.jQuery': 'jquery',
       Tether: 'tether'
     })
   ]

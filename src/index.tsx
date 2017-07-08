@@ -46,7 +46,7 @@ const App = () => {
 };
 
 // tslint:disable-next-line
-const About = () => {
+const newContact = () => {
   return (
     <ContactListForm />
   );
@@ -58,7 +58,7 @@ render(
       <Switch>
         <Route exact path='/' component={App}/>
         <Route path='/home' component={App}/>
-        <Route path='/about' component={About}/>
+        <Route path='/new' component={newContact}/>
       </Switch>
     </Bootstrap>
   </Router>,

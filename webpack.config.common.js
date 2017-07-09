@@ -82,7 +82,7 @@ module.exports = {
     }),
 
     new webpack.optimize.CommonsChunkPlugin({
-      name: ['common']
+      name: 'common'
     }),
 
     new ProgressBarPlugin({

@@ -27,7 +27,6 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
               <label className=' control-label' htmlFor='middlename'>Middle Name</label>
               <div className=''>
                 <input id='middlename' name='middlename' type='text' placeholder='Middle Name' className='form-control input-md' />
-
               </div>
             </div>
 
@@ -35,7 +34,6 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
               <label className=' control-label' htmlFor='lastname'>Last Name</label>
               <div className=''>
                 <input id='lastname' name='lastname' type='text' placeholder='Last Name' className='form-control input-md' />
-
               </div>
             </div>
 
@@ -43,7 +41,6 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
               <label className=' control-label' htmlFor='email'>Email</label>
               <div className=''>
                 <input id='email' name='email' type='text' placeholder='email@email.com' className='form-control input-md' />
-
               </div>
             </div>
 

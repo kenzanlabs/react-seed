@@ -1,8 +1,7 @@
-import * as React from 'react';
 import './contactList.scss';
+import * as React from 'react';
 
 import ContactInfo from '../contactInfo/contactInfo';
-
 
 interface ContactListInterface {
   firstName: string;

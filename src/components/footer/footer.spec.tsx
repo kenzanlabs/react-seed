@@ -1,0 +1,64 @@
+import * as React from 'react';
+import {shallow} from 'enzyme';
+import Footer from './footer';
+
+describe('<Footer />', () => {
+  let footer;
+  const footerClasses = ['w-100'];
+  const paragraphClasses = ['text-muted', 'text-center', 'my-2'];
+  const paragraphWrapperClasses = ['navbar-inverse', 'bg-inverse', 'fixed-bottom'];
+
+  beforeEach(() => {
+    footer = shallow(
+      <Footer />
+    );
+  })
+
+  it('footer should not be null', () => {
+    expect(footer).not.toBeNull();
+  });
+
+  it('should have the proper value for state "copyright"', () => {
+    const startingYear = 2014;
+    const currentYear = new Date().getFullYear();
+
+    expect(footer.state('copyright')).toEqual(`${startingYear} - ${currentYear}`);
+  });
+
+  it('footer should have a "footer" element', () => {
+    expect(footer.find('footer').length).toEqual(1);
+  });
+
+  it('footer should have a "paragraph" element', () => {
+    const currentYear = new Date().getFullYear();
+
+    expect(footer.find('p').length).toEqual(1);
+    expect(footer.find('p').text()).toMatch(`2014 - ${currentYear}`);
+  });
+
+  it('footer should have a "link <a>" element', () => {
+    const hrefValue = 'http://www.github.com/kenzanlabs';
+
+    expect(footer.find('a').length).toEqual(1);
+    expect(footer.find('a').text()).toMatch(/Kenzanlabs/);
+    expect(footer.find('a').prop('href')).toEqual(hrefValue);
+  });
+
+  for (let footerClass of footerClasses) {
+    it(`footer should have a ${footerClass} class`, () => {
+      expect(footer.find('footer').hasClass(footerClass)).toBeFalse;
+    });
+  }
+
+  for (let pClass of paragraphClasses) {
+    it(`footer <p> should have a ${pClass} class`, () => {
+      expect(footer.find('footer').hasClass(pClass)).toBeFalse;
+    });
+  }
+
+  for (let pwClass of paragraphWrapperClasses) {
+    it(`footer <p> should have a ${pwClass} class`, () => {
+      expect(footer.find('footer').hasClass(pwClass)).toBeFalse;
+    });
+  }
+});

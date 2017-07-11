@@ -65,6 +65,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "@types/enzyme": "^2.8.2",
     "bootstrap": "4.0.0-alpha.6",
     "font-awesome": "^4.7.0",
     "react": "^15.6.1",

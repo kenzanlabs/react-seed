@@ -12,7 +12,7 @@ describe('<Footer />', () => {
     footer = shallow(
       <Footer />
     );
-  })
+  });
 
   it('footer should not be null', () => {
     expect(footer).not.toBeNull();
@@ -44,21 +44,22 @@ describe('<Footer />', () => {
     expect(footer.find('a').prop('href')).toEqual(hrefValue);
   });
 
-  for (let footerClass of footerClasses) {
-    it(`footer should have a ${footerClass} class`, () => {
-      expect(footer.find('footer').hasClass(footerClass)).toBeFalse;
-    });
-  }
+  it('footer element should have correct classNames', () => {
+    expect(footerClasses.every(c => footer.find('footer').hasClass(c))).toEqual(true);
+  });
 
-  for (let pClass of paragraphClasses) {
-    it(`footer <p> should have a ${pClass} class`, () => {
-      expect(footer.find('footer').hasClass(pClass)).toBeFalse;
-    });
-  }
+  it('footer <p> element should have correct classNames', () => {
+    expect(paragraphClasses.every(c => footer.find('footer p').hasClass(c))).toEqual(true);
+  });
 
-  for (let pwClass of paragraphWrapperClasses) {
-    it(`footer <p> should have a ${pwClass} class`, () => {
-      expect(footer.find('footer').hasClass(pwClass)).toBeFalse;
-    });
-  }
+  it(`footer <div> should have classNames ${paragraphWrapperClasses}`, () => {
+    expect(paragraphWrapperClasses.every(c => footer.find('footer p').parent().hasClass(c))).toEqual(true);
+  });
+  //
+  // it('footer <p> element should have correct classNames', () => {
+  //   expect(paragraphClasses.every(c => footer.find('footer').hasClass(c))).toEqual(true);
+  // });
+
+  // for (let pwClass of paragraphWrapperClasses) {
+  // }
 });

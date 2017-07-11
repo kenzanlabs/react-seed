@@ -38,12 +38,12 @@ describe('<ContactInfo />', () => {
         email: 'jSmith@email.com',
         image: 'http:www.randomImg.com/img.png'
       }
-    ]
+    ];
 
     it('should render a contact that only has a firstName prop', () => {
       const info = shallow(
         <ContactInfo contact={sampleContacts[0]}/>
-      );8
+      );
       expect(info.find('.name').text()).toMatch(sampleContacts[0].firstName);
     });
 
@@ -52,7 +52,7 @@ describe('<ContactInfo />', () => {
         <ContactInfo contact={sampleContacts[0]}/>
       );
       expect(info.find('i').length).toEqual(1);
-      expect(['fa', 'fa-user-circle-o', 'fa-4x', 'mx-auto'].every(c => info.find('i').hasClass(c))).toEqual(true)
+      expect(['fa', 'fa-user-circle-o', 'fa-4x', 'mx-auto'].every(c => info.find('i').hasClass(c))).toEqual(true);
     });
 
     it('should render a contact img when image url is passed', () => {
@@ -61,10 +61,10 @@ describe('<ContactInfo />', () => {
       );
       expect(info.find('i').length).toEqual(0);
       expect(info.find('img').length).toEqual(1);
-      expect(['img-responsive', 'img-circle'].every(c => info.find('img').hasClass(c))).toEqual(true)
+      expect(['img-responsive', 'img-circle'].every(c => info.find('img').hasClass(c))).toEqual(true);
     });
 
-    for(let contact of sampleContacts) {
+    for (let contact of sampleContacts) {
       it(`should render correctly for sampleContacts case ${contact.firstName}`, () => {
         const info = shallow(
           <ContactInfo contact={contact}/>

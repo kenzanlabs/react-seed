@@ -21,17 +21,16 @@ const ContactInfo: React.SFC<ContactInfoPropsInterface> = ({contact}) => {
 
   return (
     <div className='list-group-item'>
-      <div className='col-xs-12 col-sm-3'>
+      <div className='col-4'>
         {image ? <img src={image} alt={firstName} className='img-responsive img-circle' /> : userIcon}
       </div>
-      <div className='col-xs-12 col-sm-9'>
+      <div className='col-8'>
         <span className='name'>{`${firstName} ${(middleName ? middleName : '')} ${(lastName ? lastName : '')}`.trim()}</span><br/>
         <span className='fa fa-phone text-muted c-info' data-toggle='tooltip' title={phone}></span>
         <span className='visible-xs'> <span className='text-muted'>{phone}</span><br/></span>
         <span className='fa fa-comments text-muted c-info' data-toggle='tooltip' title='scott.stevens@example.com'></span>
         <span className='visible-xs'> <span className='text-muted'>{email}</span><br/></span>
       </div>
-      <div className='clearfix'></div>
     </div>
   );
 };

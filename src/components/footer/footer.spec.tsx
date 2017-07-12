@@ -14,14 +14,11 @@ describe('<Footer />', () => {
     );
   });
 
-  it('footer should not be null', () => {
-    expect(footer).not.toBeNull();
-  });
-
   it('should have the proper value for state "copyright"', () => {
     const startingYear = 2014;
     const currentYear = new Date().getFullYear();
 
+    expect(footer).not.toBeNull();
     expect(footer.state('copyright')).toEqual(`${startingYear} - ${currentYear}`);
   });
 
@@ -55,11 +52,4 @@ describe('<Footer />', () => {
   it(`footer <div> should have classNames ${paragraphWrapperClasses}`, () => {
     expect(paragraphWrapperClasses.every(c => footer.find('footer p').parent().hasClass(c))).toEqual(true);
   });
-  //
-  // it('footer <p> element should have correct classNames', () => {
-  //   expect(paragraphClasses.every(c => footer.find('footer').hasClass(c))).toEqual(true);
-  // });
-
-  // for (let pwClass of paragraphWrapperClasses) {
-  // }
 });

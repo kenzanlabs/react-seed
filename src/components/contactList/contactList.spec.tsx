@@ -8,13 +8,10 @@ describe('<ContactList />', () => {
     <ContactList contacts={[]}/>
   );
 
-  it('should not be null', () => {
-    expect(list).not.toBeNull();
-  });
-
   it('should render correct classNames', () => {
     const classNames = ['list-group', 'contact-list'];
 
+    expect(list).not.toBeNull();
     expect(classNames.every(c => list.hasClass(c))).toEqual(true);
   });
 

@@ -14,39 +14,41 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
       <div className='contact-list-form row'>
         <form className='form-horizontal col-md-8 offset-md-2'>
           <fieldset>
-            <legend className='row text-center'><h2>Add a contact</h2></legend>
+            <legend className='row text-center'>
+              <h2>Add a contact</h2>
+            </legend>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='firstname'>First Name</label>
-              <div className=''>
+              <div>
                 <input id='firstname' name='firstname' type='text' placeholder='First Name' className='form-control input-md' required />
               </div>
             </div>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='middlename'>Middle Name</label>
-              <div className=''>
+              <div>
                 <input id='middlename' name='middlename' type='text' placeholder='Middle Name' className='form-control input-md' />
               </div>
             </div>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='lastname'>Last Name</label>
-              <div className=''>
+              <div>
                 <input id='lastname' name='lastname' type='text' placeholder='Last Name' className='form-control input-md' />
               </div>
             </div>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='email'>Email</label>
-              <div className=''>
+              <div>
                 <input id='email' name='email' type='text' placeholder='email@email.com' className='form-control input-md' />
               </div>
             </div>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='imgupload'>Photo</label>
-              <div className=''>
+              <div>
                 <input id='imgupload' name='imgupload' className='input-file' type='file' />
               </div>
             </div>

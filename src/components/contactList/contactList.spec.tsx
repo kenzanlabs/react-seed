@@ -6,6 +6,29 @@ describe('<ContactList />', () => {
   const list = shallow(
     <ContactList contacts={[]}/>
   );
+  const sampleContacts = [
+    {
+      firstName: 'Joe',
+      lastName: 'Lane',
+      phone: '(423)-223-4321',
+      email: 'jLane@email.com'
+    },
+    {
+      firstName: 'Jane',
+      middleName: 'Ann',
+      lastName: 'Smith',
+      phone: '(423)-223-4321',
+      email: 'jSmith@email.com'
+    },
+    {
+      firstName: 'Omar',
+      middleName: 'Ann',
+      lastName: 'James',
+      phone: '(423)-223-4321',
+      email: 'jSmith@email.com',
+      image: 'http:www.randomImg.com/img.png'
+    }
+  ];
 
   it('should render correct classNames', () => {
     const classNames = ['list-group', 'contact-list'];
@@ -15,29 +38,6 @@ describe('<ContactList />', () => {
   });
 
   describe('should render a <ContactInfo/> component per each contact passed in the contacts prop', () => {
-    const sampleContacts = [
-      {
-        firstName: 'Joe',
-        lastName: 'Lane',
-        phone: '(423)-223-4321',
-        email: 'jLane@email.com'
-      },
-      {
-        firstName: 'Jane',
-        middleName: 'Ann',
-        lastName: 'Smith',
-        phone: '(423)-223-4321',
-        email: 'jSmith@email.com'
-      },
-      {
-        firstName: 'Omar',
-        middleName: 'Ann',
-        lastName: 'James',
-        phone: '(423)-223-4321',
-        email: 'jSmith@email.com',
-        image: 'http:www.randomImg.com/img.png'
-      }
-    ];
 
     it('should render zero contacts when contacts array is empty', () => {
       const listItem = shallow(<ContactList contacts={[]} />);

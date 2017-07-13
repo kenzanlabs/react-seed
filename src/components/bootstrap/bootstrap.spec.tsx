@@ -3,7 +3,6 @@ import {shallow} from 'enzyme';
 import Bootstrap from './bootstrap';
 
 describe('<Bootstrap />', () => {
-  // Render a checkbox with label in the document
   const bootstrap = shallow(
     <Bootstrap/>
   );

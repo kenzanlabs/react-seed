@@ -3,7 +3,6 @@ import {shallow} from 'enzyme';
 import ContactList from './contactList';
 
 describe('<ContactList />', () => {
-  // Render a checkbox with label in the document
   const list = shallow(
     <ContactList contacts={[]}/>
   );

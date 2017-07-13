@@ -4,7 +4,6 @@ import Navigation from './navigation';
 import {MemoryRouter, Link} from 'react-router-dom';
 
 describe('<Navigation />', () => {
-  // Render a checkbox with label in the document
   const navigation = mount(
     <MemoryRouter>
       <Navigation />

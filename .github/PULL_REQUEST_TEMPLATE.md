@@ -1,5 +1,5 @@
 <!--
-## Submitting Pull Request
+## Submitting a Pull Request
 We love PRs and appreciate any help you can offer.
 
 Please make sure the following criteria is meet before submitting your pull request.

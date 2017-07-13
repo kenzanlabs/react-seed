@@ -1,51 +1,102 @@
 import * as React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import Navigation from './navigation';
 import {MemoryRouter, Link} from 'react-router-dom';
 
 describe('<Navigation />', () => {
   // Render a checkbox with label in the document
-  const navigation = shallow(
-    <Navigation />
-  );
-
-  const routerNav = shallow(
-    <MemoryRouter
-      initialEntries={[ '/', '/home', '/new', { pathname: '/' } ]}
-      initialIndex={1}
-    >
+  const navigation = mount(
+    <MemoryRouter>
       <Navigation />
     </MemoryRouter>
   );
 
-  it('should have a <Nav/> component', () => {
+  it('should have a <nav/> element', () => {
     const nav = navigation.find('nav');
-    const navClasses = ['navbar', 'navbar-toggleable-md', 'navbar-inverse', 'bg-inverse', 'w-100'];
 
-    expect(navigation).not.toBeNull();
     expect(nav.length).toEqual(1);
-    expect(navClasses.every(c => nav.hasClass(c))).toEqual(true);
   });
 
-  it('should have a hamburger button', () => {
-    const hamButton = navigation.find('nav button');
-    const btnSpan = navigation.find('nav button span');
-    const btnClasses = ['navbar-toggler', 'navbar-toggler-right'];
-    const spanClasses = ['navbar-toggler-icon'];
+  describe('<nav/> element', () => {
+    let nav;
 
-    expect(hamButton).not.toBeNull();
-    expect(btnSpan).not.toBeNull();
-    expect(btnClasses.every(c => hamButton.hasClass(c))).toEqual(true);
-    expect(spanClasses.every(c => btnSpan.hasClass(c))).toEqual(true);
-  });
+    beforeEach(() => {
+      nav = navigation.find('nav');
+    });
 
-  it('should render appropriate <Link/> elements', () => {
-    const brandLink = <Link className='navbar-brand' to='/'>React Seed</Link>;
-    const homeLink = <li className='nav-item'><Link className='nav-link' to='/'>Home</Link></li>;
-    const newLink = <li className='nav-item'><Link className='nav-link' to='/new'>New Contact</Link></li>;
+    it('should have a brand Link element', () => {
+      const brandLink = <Link className='navbar-brand' to='/'>React Seed</Link>;
+      const brandTitle = 'React Seed';
 
-    expect(navigation.contains(brandLink)).toBeTruthy();
-    expect(navigation.contains(homeLink)).toBeTruthy();
-    expect(navigation.contains(newLink)).toBeTruthy();
+      expect(nav.contains(brandLink)).toBeTruthy();
+      expect(nav.find('Link').first().text()).toEqual(brandTitle);
+    });
+
+    it('should have a navigation list', () => {
+      const navList = nav.find('ul');
+
+      expect(navList.length).toEqual(1);
+    });
+
+    it('should have one button element', () => {
+      expect(nav.find('button').length).toEqual(1);
+    });
+
+    describe('navigation list <ul>', () => {
+      const homeListItem = {
+        text: 'Home',
+        path: '/'
+      };
+      const newListItem = {
+        text: 'New Contact',
+        path: '/new'
+      };
+      let navList;
+
+      beforeEach(() => {
+        navList = nav.find('ul');
+      })
+
+      it('should have two list items', () => {
+        expect(navList.children().length).toEqual(2);
+      });
+
+      it('should have two list items', () => {
+        expect(navList.find('li').length).toEqual(2);
+      });
+
+      it(`should have first list item display ${homeListItem.text} with href to ${homeListItem.path}`, () => {
+        expect(navList.find('ul').childAt(0).text()).toEqual(homeListItem.text);
+      });
+
+      it(`should have first list item display ${newListItem.text} with href to ${newListItem.path}`, () => {
+        expect(navList.find('ul').childAt(1).text()).toEqual(newListItem.text);
+      });
+
+      describe('navigation list item <li>', () => {
+        const homeLinkEl = <Link className='nav-link' to='/'>Home</Link>;
+        const newLinkEl = <Link className='nav-link' to='/new'>New Contact</Link>;
+        let listHomeLink, listNewLink;
+
+        beforeEach(() => {
+          listHomeLink = navList.find('ul').childAt(0).find('Link');
+          listNewLink = navList.find('ul').childAt(1).find('Link');
+        })
+
+        it(`should have a <Link/> component for route ${homeListItem.path}`, () => {
+          expect(listHomeLink.length).toEqual(1);
+          expect(listHomeLink.text()).toEqual(homeListItem.text);
+          expect(listHomeLink.props().to).toEqual('/');
+          expect(listHomeLink.matchesElement(homeLinkEl)).toBeTruthy();
+        });
+
+        it(`should have a <Link/> component for route ${newListItem.path}`, () => {
+          expect(listNewLink.length).toEqual(1);
+          expect(listNewLink.text()).toEqual(newListItem.text);
+          expect(listNewLink.props().to).toEqual('/new');
+          expect(listNewLink.matchesElement(newLinkEl)).toBeTruthy();
+        });
+      });
+    });
   });
 });

@@ -14,42 +14,37 @@ describe('<Footer />', () => {
     );
   });
 
-  it('should have the proper value for state "copyright"', () => {
-    const startingYear = 2014;
-    const currentYear = new Date().getFullYear();
-
-    expect(footer).not.toBeNull();
-    expect(footer.state('copyright')).toEqual(`${startingYear} - ${currentYear}`);
-  });
-
   it('footer should have a "footer" element', () => {
     expect(footer.find('footer').length).toEqual(1);
   });
 
-  it('footer should have a "paragraph" element', () => {
+  it('should set the initial value for state.copyright', () => {
+    const startingYear = 2014;
     const currentYear = new Date().getFullYear();
 
-    expect(footer.find('p').length).toEqual(1);
-    expect(footer.find('p').text()).toMatch(`2014 - ${currentYear}`);
+    expect(footer.state('copyright')).toEqual(`${startingYear} - ${currentYear}`);
   });
 
-  it('footer should have a "link <a>" element', () => {
-    const hrefValue = 'http://www.github.com/kenzanlabs';
+  describe('<footer/>', () => {
+    let footerEl;
 
-    expect(footer.find('a').length).toEqual(1);
-    expect(footer.find('a').text()).toMatch(/Kenzanlabs/);
-    expect(footer.find('a').prop('href')).toEqual(hrefValue);
-  });
+    beforeEach(() => {
+      footerEl = footer.find('footer');
+    });
 
-  it('footer element should have correct classNames', () => {
-    expect(footerClasses.every(c => footer.find('footer').hasClass(c))).toEqual(true);
-  });
+    // TODO, may circle back and change wording for this test.
+    it('should have a <p> element with text that includes copyright property of component\'s state', () => {
+      const copyright = footer.state('copyright')
 
-  it('footer <p> element should have correct classNames', () => {
-    expect(paragraphClasses.every(c => footer.find('footer p').hasClass(c))).toEqual(true);
-  });
+      expect(footer.find('p').text().includes(copyright)).toBeTruthy();
+    });
 
-  it(`footer <div> should have classNames ${paragraphWrapperClasses}`, () => {
-    expect(paragraphWrapperClasses.every(c => footer.find('footer p').parent().hasClass(c))).toEqual(true);
+    it('footer should have a "<a>" element', () => {
+      const hrefValue = 'http://www.github.com/kenzanlabs';
+
+      expect(footer.find('a').length).toEqual(1);
+      expect(footer.find('a').text()).toMatch(/Kenzanlabs/);
+      expect(footer.find('a').prop('href')).toEqual(hrefValue);
+    });
   });
 });

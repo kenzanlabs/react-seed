@@ -15,10 +15,13 @@ describe('<ContactList />', () => {
     expect(classNames.every(c => list.hasClass(c))).toEqual(true);
   });
 
-  describe('should render a <ContactInfo/> component per each contact passed', () => {
+  describe('should render a <ContactInfo/> component per each contact passed in the contacts prop', () => {
     const sampleContacts = [
       {
-        firstName: 'Joe'
+        firstName: 'Joe',
+        lastName: 'Lane',
+        phone: '(423)-223-4321',
+        email: 'jLane@email.com'
       },
       {
         firstName: 'Jane',
@@ -37,17 +40,17 @@ describe('<ContactList />', () => {
       }
     ];
 
-    it('should render no ContactInfo', () => {
+    it('should render no ContactInfo when contacts array is empty', () => {
       const listItem = shallow(<ContactList contacts={[]} />);
       expect(listItem.find('ContactInfo').length).toEqual(0);
     });
 
-    it('should render one Contact', () => {
+    it('should render one ContactList component when contacts array has one contacts', () => {
       const listItem = shallow(<ContactList contacts={[sampleContacts[0]]} />);
       expect(listItem.find('ContactInfo').length).toEqual(1);
     });
 
-    it('should render two Contact', () => {
+    it('should render two ContactList component when contacts array has two contacts', () => {
       const listItem = shallow(<ContactList contacts={[sampleContacts[0], sampleContacts[1]]} />);
       expect(listItem.find('ContactInfo').length).toEqual(2);
     });
@@ -55,6 +58,24 @@ describe('<ContactList />', () => {
     it('should render all Contact', () => {
       const listItem = shallow(<ContactList contacts={sampleContacts} />);
       expect(listItem.find('ContactInfo').length).toEqual(sampleContacts.length);
+    });
+
+    it('should throw an error when a string is passed, case "contacts"', () => {
+      const fn = () => shallow(<ContactList contacts={'contacts'}/>);
+
+      expect(fn).toThrow();
+    });
+
+    it('should throw an error when a number is passed case "1"', () => {
+      const fn = () => shallow(<ContactList contacts={1}/>);
+
+      expect(fn).toThrow();
+    });
+
+    it(`should throw an error when a object is passed case ${sampleContacts[0]}`, () => {
+      const fn = () => shallow(<ContactList contacts={sampleContacts[0]}/>);
+
+      expect(fn).toThrow();
     });
   });
 });

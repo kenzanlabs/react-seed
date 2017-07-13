@@ -39,26 +39,18 @@ describe('<ContactList />', () => {
       }
     ];
 
-    it('should render no ContactInfo when contacts array is empty', () => {
+    it('should render zero contacts when contacts array is empty', () => {
       const listItem = shallow(<ContactList contacts={[]} />);
       expect(listItem.find('ContactInfo').length).toEqual(0);
     });
 
-    it('should render one ContactList component when contacts array has one contacts', () => {
-      const listItem = shallow(<ContactList contacts={[sampleContacts[0]]} />);
-      expect(listItem.find('ContactInfo').length).toEqual(1);
-    });
-
-    it('should render two ContactList component when contacts array has two contacts', () => {
-      const listItem = shallow(<ContactList contacts={[sampleContacts[0], sampleContacts[1]]} />);
-      expect(listItem.find('ContactInfo').length).toEqual(2);
-    });
-
-    it('should render all Contact', () => {
+    it('should render "n" amount of  Contacts', () => {
       const listItem = shallow(<ContactList contacts={sampleContacts} />);
       expect(listItem.find('ContactInfo').length).toEqual(sampleContacts.length);
     });
+  });
 
+  describe('contacts prop datatype checking', () => {
     it('should throw an error when a string is passed, case "contacts"', () => {
       const fn = () => shallow(<ContactList contacts={'contacts'}/>);
 
@@ -77,4 +69,5 @@ describe('<ContactList />', () => {
       expect(fn).toThrow();
     });
   });
+
 });

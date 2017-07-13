@@ -173,7 +173,6 @@ describe('<ContactInfo />', () => {
         expect(info.find('.phone').text()).toEqual(phone);
       });
 
-
       it('should render an image element', () => {
         expect(info.find('img').length).toEqual(1);
         expect(info.find('img').props().src).toEqual(image);

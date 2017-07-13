@@ -87,7 +87,7 @@
     ],
     "interface-name": false,
     "jsdoc-format": true,
-    "no-consecutive-blank-lines": false,
+    "no-consecutive-blank-lines": true,
     "one-line": [
       true,
       "check-open-brace",

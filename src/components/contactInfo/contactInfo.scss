@@ -1,0 +1,14 @@
+
+.contact-info {
+  .phone,
+  .email {
+    &:after{
+      content: "\a";
+      white-space: pre;
+    }
+  }
+
+  .name {
+    font-size: 1.25em;
+  }
+}

@@ -54,7 +54,7 @@ describe('<Navigation />', () => {
 
       beforeEach(() => {
         navList = nav.find('ul');
-      })
+      });
 
       it('should have two list items', () => {
         expect(navList.children().length).toEqual(2);
@@ -80,7 +80,7 @@ describe('<Navigation />', () => {
         beforeEach(() => {
           listHomeLink = navList.find('ul').childAt(0).find('Link');
           listNewLink = navList.find('ul').childAt(1).find('Link');
-        })
+        });
 
         it(`should have a <Link/> component for route ${homeListItem.path}`, () => {
           expect(listHomeLink.length).toEqual(1);

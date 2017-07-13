@@ -34,7 +34,7 @@ describe('<Footer />', () => {
 
     // TODO, may circle back and change wording for this test.
     it('should have a <p> element with text that includes copyright property of component\'s state', () => {
-      const copyright = footer.state('copyright')
+      const copyright = footer.state('copyright');
 
       expect(footer.find('p').text().includes(copyright)).toBeTruthy();
     });

@@ -7,14 +7,13 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import ContactList from '../../components/contactList/contactList';
 import ContactListForm from '../../components/contactListForm/contactListForm';
 
-
 interface ContactInterface {
   firstName: string;
   middleName?: string;
   email?: string;
   lastName?: string;
   phone?: string;
-  id?: number
+  id?: number;
 }
 
 interface HomeStateInterface {
@@ -34,16 +33,16 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     this.state = {
       isFormOpen: false,
       currentContact: null
-    }
+    };
   }
 
-  private openForm():void {
+  private openForm(): void {
     this.setState({
       isFormOpen: true
     });
   }
 
-  private cancelNewContact():void {
+  private cancelNewContact(): void {
     this.setState({
       isFormOpen: false
     });
@@ -67,10 +66,10 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
   private selectContact(index: number) {
     this.setState({
       currentContact: this.props.contacts[index]
-    })
+    });
   }
 
-  public componentWillReceiveProps(newProps:{}) {
+  public componentWillReceiveProps(newProps: {}) {
     if (!this.state.currentContact) {
       // this.setState({
       //   currentContact: newProps.contacts[0]
@@ -82,7 +81,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     if ( this.state.currentContact) {
       const {id, firstName, middleName, lastName, phone, email} = this.state.currentContact;
     }
-    function _buildName(firstName: string, middleName: string, lastName: string):string {
+    function _buildName(firstName: string, middleName: string, lastName: string): string {
       let _middleName: string = middleName ? ` ${middleName}` : '';
       let _lastName: string = lastName ? ` ${lastName}` : '';
 
@@ -108,17 +107,17 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
                {
                  this.state.currentContact &&
                  <div className='card'>
-                     <div className="card-block">
-                       <h2 className="card-title">{_buildName(firstName, middleName, lastName)}</h2>
+                     <div className='card-block'>
+                       <h2 className='card-title'>{_buildName(firstName, middleName, lastName)}</h2>
                      </div>
-                     <ul className="list-group list-group-flush">
-                       <li className="list-group-item">
+                     <ul className='list-group list-group-flush'>
+                       <li className='list-group-item'>
                          <span className='fa fa-phone text-muted c-info' data-toggle='tooltip' title={phone}></span>
-                         <span className='visible-xs'> <span className='text-muted phone'>{phone}</span></span>
+                         <span className='visible-xs'> <span className='text-muted phone'>{ phone}</span></span>
                        </li>
-                       <li className="list-group-item">
+                       <li className='list-group-item'>
                          <span className='fa fa-comments text-muted c-info' data-toggle='tooltip' title={email}></span>
-                         <span className='visible-xs'> <span className='text-muted email'>{email}</span></span>
+                         <span className='visible-xs'> <span className='text-muted email'>{ email}</span></span>
                        </li>
                      </ul>
                  </div>

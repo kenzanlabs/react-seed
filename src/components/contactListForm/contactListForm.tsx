@@ -10,16 +10,18 @@ interface ContactListFormStateInterface {
 }
 
 class ContactListForm extends React.Component<ContactListFormPropsInterface, ContactListFormStateInterface> {
-  constructor(props: any) {
-      super(props);
-    }
+  constructor(props: ContactListFormPropsInterface) {
+    super(props);
+  }
 
-  private handleSubmit(e: Event){
+  private handleSubmit(e: Event) {
     e.preventDefault();
     const formData: {} = {};
 
     for (const field in this.refs) {
-      formData[field] = this.refs[field].value;
+      if (this.refs.hasOwnProperty(field)) {
+        formData[field] = this.refs[field].value;
+      }
     }
 
     this.props.onSubmit(formData);
@@ -69,7 +71,7 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
             <div className='form-group'>
               <label className=' control-label' htmlFor='phone'>Phone</label>
               <div>
-                <input ref='phone' id='phone' name='phone' type='text' placeholder='(000)-000-0000'
+                <input ref='phone' id='phone' name='phone' type='tel' placeholder='(000)-000-0000'
                        className='form-control input-md'/>
               </div>
             </div>

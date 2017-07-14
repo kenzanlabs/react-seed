@@ -27,18 +27,18 @@ interface ContactInterface {
 export default class Bootstrap extends React.Component<BootstrapPropsInterface, BootstrapStateInterface> {
   constructor() {
     super();
-    this.state= {
+    this.state = {
       contacts: []
-    }
+    };
   }
 
-  private updateContacts(contacts: ContactInterface[]):void {
+  private updateContacts(contacts: ContactInterface[]): void {
     this.setState({
       contacts: contacts
-    })
+    });
   }
 
-  public componentDidUpdate(prevProps:{}, prevState:{}):void {
+  public componentDidUpdate(prevProps: {}, prevState: {}): void {
   }
 
   render() {

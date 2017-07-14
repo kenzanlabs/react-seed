@@ -29,7 +29,7 @@ const ContactInfo: React.SFC<ContactInfoPropsInterface> = ({contact, isActive, i
   const {firstName, middleName, email, lastName, phone, image} = contact;
   const userIcon = <i className='fa fa-user-circle-o fa-4x mx-auto' aria-hidden='true'></i>;
 
-  function _handleClick():void {
+  function _handleClick(): void {
     clickHandler(id);
   }
 

@@ -1,3 +1,10 @@
+@import '../bootstrap/bootstrap.scss';
+
 .contact-list {
   padding-top: 20px;
+
+  .active-contact {
+    background-color: $activeBtn;
+    color: white;
+  }
 }

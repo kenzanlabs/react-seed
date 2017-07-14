@@ -23,7 +23,7 @@ class Navigation extends React.Component<NavigationPropsInterface, NavigationSta
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav ml-auto'>
               <li className='nav-item'><Link className='nav-link' to='/'>Home</Link></li>
-              <li className='nav-item'><Link className='nav-link' to='/new'>New Contact</Link></li>
+              <li className='nav-item'><Link className='nav-link' to='/about'>About</Link></li>
             </ul>
           </div>
         </div>

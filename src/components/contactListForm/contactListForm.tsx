@@ -3,16 +3,32 @@ import * as React from 'react';
 import {Link} from 'react-router-dom';
 
 interface ContactListFormPropsInterface {
+  onCancel: Function;
+  onSubmit: Function;
 }
 interface ContactListFormStateInterface {
 }
 
 class ContactListForm extends React.Component<ContactListFormPropsInterface, ContactListFormStateInterface> {
+  constructor(props: any) {
+      super(props);
+    }
 
-  render() {
+  private handleSubmit(e: Event){
+    e.preventDefault();
+    const formData: {} = {};
+
+    for (const field in this.refs) {
+      formData[field] = this.refs[field].value;
+    }
+
+    this.props.onSubmit(formData);
+  }
+
+  public render() {
     return (
       <div className='contact-list-form row'>
-        <form className='form-horizontal col-md-8 offset-md-2'>
+        <form className='form-horizontal col-md-8 offset-md-2' onSubmit={this.handleSubmit.bind(this)}>
           <fieldset>
             <legend className='row text-center'>
               <h2>Add a contact</h2>
@@ -21,42 +37,48 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
             <div className='form-group'>
               <label className=' control-label' htmlFor='firstname'>First Name</label>
               <div>
-                <input id='firstname' name='firstname' type='text' placeholder='First Name' className='form-control input-md' required />
+                <input ref='firstName' id='firstname' name='firstname' type='text' placeholder='First Name'
+                       className='form-control input-md' required/>
               </div>
             </div>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='middlename'>Middle Name</label>
               <div>
-                <input id='middlename' name='middlename' type='text' placeholder='Middle Name' className='form-control input-md' />
+                <input ref='middleName' id='middlename' name='middlename' type='text' placeholder='Middle Name'
+                       className='form-control input-md'/>
               </div>
             </div>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='lastname'>Last Name</label>
               <div>
-                <input id='lastname' name='lastname' type='text' placeholder='Last Name' className='form-control input-md' />
+                <input ref='lastName' id='lastname' name='lastname' type='text' placeholder='Last Name'
+                       className='form-control input-md'/>
               </div>
             </div>
 
             <div className='form-group'>
               <label className=' control-label' htmlFor='email'>Email</label>
               <div>
-                <input id='email' name='email' type='text' placeholder='email@email.com' className='form-control input-md' />
+                <input ref='email' id='email' name='email' type='text' placeholder='email@email.com'
+                       className='form-control input-md'/>
               </div>
             </div>
 
             <div className='form-group'>
-              <label className=' control-label' htmlFor='imgupload'>Photo</label>
+              <label className=' control-label' htmlFor='phone'>Phone</label>
               <div>
-                <input id='imgupload' name='imgupload' className='input-file' type='file' />
+                <input ref='phone' id='phone' name='phone' type='text' placeholder='(000)-000-0000'
+                       className='form-control input-md'/>
               </div>
             </div>
 
             <div className='form-group'>
               <div className='btn-toolbar'>
-                <button id='addContactBtn' name='addContactBtn' className='btn btn-success'>Add Contact</button>
-                <Link to='/' id='cancel' className='btn btn-danger'>Cancel</Link>
+                <button id='addContactBtn' name='addContactBtn' className='btn btn-success' type='submit'>Add Contact
+                </button>
+                <button id='cancel' className='btn btn-danger' onClick={this.props.onCancel}>Cancel</button>
               </div>
             </div>
           </fieldset>
@@ -64,7 +86,6 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
       </div>
     );
   }
-
 }
 
 export default ContactListForm;

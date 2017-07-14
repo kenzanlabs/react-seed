@@ -30,9 +30,9 @@ describe('<ContactInfo />', () => {
     image: 'http:www.randomImg.com/img.png'
   };
 
-  const  buildName = (firstName: string, middleName: string, lastName: string) => {
-    let _middleName: string = middleName ? ` ${middleName}` : '';
-    let _lastName: string = lastName ? ` ${lastName}` : '';
+  const  buildName = (firstName, middleName, lastName) => {
+    let _middleName= middleName ? ` ${middleName}` : '';
+    let _lastName= lastName ? ` ${lastName}` : '';
 
     return `${firstName}${_middleName}${_lastName}`;
   };

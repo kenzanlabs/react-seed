@@ -2,10 +2,11 @@ import 'font-awesome/css/font-awesome.css';
 import './home.scss';
 
 import * as React from 'react';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 import ContactList from '../../components/contactList/contactList';
 import ContactListForm from '../../components/contactListForm/contactListForm';
+
+import ContactsService from './../../services/contacts.service';
 
 interface ContactInterface {
   firstName: string;
@@ -14,6 +15,7 @@ interface ContactInterface {
   lastName?: string;
   phone?: string;
   id?: number;
+  image?: string;
 }
 
 interface HomeStateInterface {
@@ -48,22 +50,43 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     });
   }
 
-  private updateContacts(contacts: ContactInterface[], index: number) {
+  private updateContacts(contacts: ContactInterface[], index: number): void {
     this.props.onListUpdate(contacts, index);
   }
 
-  private onNewContactSubmit(contact: ContactInterface) {
+  private onNewContactSubmit(contact: ContactInterface): void {
+    if (contact.email) {
+
+      // HTTP call to gravatar.
+      ContactsService
+        .getAvatar(contact.email)
+        .then(url => {
+            contact.image = url;
+
+            this.setState({
+              currentContact: newContacts[contact.id]
+            });
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
     contact.id = this.props.contacts.length;
     const newContacts = [...this.props.contacts, contact];
 
-    this.updateContacts(newContacts, contact.id);
+    ContactsService
+      .setContacts(newContacts)
+      .then(contacts => {
+        this.updateContacts(contacts, contact.id);
+      });
+
     this.setState({
       isFormOpen: false,
       currentContact: newContacts[contact.id]
     });
   }
 
-  private selectContact(index: number) {
+  private selectContact(index: number): void {
     this.updateContacts(this.props.contacts, index);
   }
 
@@ -74,7 +97,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     return `${firstName}${_middleName}${_lastName}`;
   }
 
-  private renderContactCard (contact: ContactInterface) {
+  private renderContactCard (contact: ContactInterface): JSX.Element {
     if (contact) {
       return (
         <div className='card'>
@@ -96,7 +119,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     }
   }
 
-  private renderContactList (contacts: ContactInterface[]) {
+  private renderContactList (contacts: ContactInterface[]): JSX.Element {
     if (contacts.length > 0) {
       return (
         <ContactList
@@ -108,13 +131,13 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     }
   }
 
-  public componentWillReceiveProps(newProps: HomePropsInterface) {
+  public componentWillReceiveProps(newProps: HomePropsInterface): void {
     this.setState({
       currentContact: newProps.contacts[newProps.currentIndex]
     });
   }
 
-  render() {
+  render(): JSX.Element {
 
     return (
       <div className='container home'>

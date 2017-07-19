@@ -1,5 +1,7 @@
 
 .contact-info {
+  overflow: hidden;
+
   .phone,
   .email {
     &:after{
@@ -10,5 +12,10 @@
 
   .name {
     font-size: 1.25em;
+  }
+
+  img{
+    max-height: 125%;
+    max-width: 125%;
   }
 }

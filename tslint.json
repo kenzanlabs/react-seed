@@ -7,7 +7,11 @@
     "no-inferrable-types": false,
     "no-internal-module": true,
     "no-var-requires": true,
-    "typedef": false,
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ],
     "typedef-whitespace": [
       true,
       {

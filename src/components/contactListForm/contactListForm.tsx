@@ -41,7 +41,7 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
     this.props.onCancel();
   }
 
-  public render() {
+  public render(): JSX.Element {
     return (
       <div className='contact-list-form row'>
         <form className='form-horizontal col-md-8 offset-md-2' onSubmit={this.handleSubmit.bind(this)}>

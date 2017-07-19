@@ -8,7 +8,7 @@ interface AboutPropsInterface extends RouteComponentProps<{}> {
 }
 
 export default class About extends React.Component<AboutPropsInterface, AboutStateInterface> {
-  render() {
+  render(): JSX.Element {
     return (
       <div className='container about'>
         <h1>About</h1>

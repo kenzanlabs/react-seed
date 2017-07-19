@@ -17,7 +17,7 @@ interface ContactInfoPropsInterface {
   clickHandler: Function;
 }
 
-function buildName(firstName: string, middleName: string, lastName: string) {
+function buildName(firstName: string, middleName: string, lastName: string): string {
   let _middleName: string = middleName ? ` ${middleName}` : '';
   let _lastName: string = lastName ? ` ${lastName}` : '';
 
@@ -36,7 +36,7 @@ const ContactInfo: React.SFC<ContactInfoPropsInterface> = ({contact, isActive, i
   return (
     <div className={`list-group-item contact-info ${isActive ? 'active-contact' : ''}`} onClick={_handleClick}>
       <div className='col-3'>
-        {image ? <img src={image} alt={firstName} className='img-responsive img-circle' /> : userIcon}
+        {image ? <img src={image} alt={firstName} className='img-fluid rounded-circle' /> : userIcon}
       </div>
       <div className='col-9'>
         <h2 className='name'>{buildName(firstName, middleName, lastName)}</h2>

@@ -20,7 +20,7 @@ export default class Footer extends React.Component<FooterPropsInterface, Footer
     };
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <footer className='w-100'>
         <div className='navbar-inverse bg-inverse fixed-bottom'>

@@ -1,10 +1,9 @@
 import * as React from 'react';
-import {RouteComponentProps} from 'react-router-dom';
 
 interface AboutStateInterface {
 }
 
-interface AboutPropsInterface extends RouteComponentProps<{}> {
+interface AboutPropsInterface {
 }
 
 export default class About extends React.Component<AboutPropsInterface, AboutStateInterface> {

@@ -2,8 +2,6 @@ import 'font-awesome/css/font-awesome.css';
 import './home.scss';
 
 import * as React from 'react';
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
-
 import ContactList from '../../components/contactList/contactList';
 import ContactListForm from '../../components/contactListForm/contactListForm';
 
@@ -97,7 +95,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
   }
 
   private renderContactList (contacts: ContactInterface[]) {
-    if (contacts.length > 0) {
+    if (contacts && contacts.length > 0) {
       return (
         <ContactList
           contacts={this.props.contacts}

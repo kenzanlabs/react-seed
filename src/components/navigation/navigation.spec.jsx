@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {shallow, mount} from 'enzyme';
+import { mount } from 'enzyme';
 import Navigation from './navigation';
-import {MemoryRouter, Link} from 'react-router-dom';
+import { MemoryRouter, Link } from 'react-router-dom';
 
-describe('<Navigation />', () => {
+describe('Navigation Component', () => {
   const navigation = mount(
     <MemoryRouter>
       <Navigation />
@@ -96,6 +96,9 @@ describe('<Navigation />', () => {
           expect(listNewLink.matchesElement(newLinkEl)).toBeTruthy();
         });
       });
+
     });
+
   });
+
 });

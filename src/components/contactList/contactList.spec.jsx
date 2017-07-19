@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import ContactList from './contactList';
 
-describe('<ContactList />', () => {
-  const list = shallow(
-    <ContactList contacts={[]}/>
-  );
+describe('Contact List Component', () => {
+  const list = shallow(<ContactList contacts={[]}/>);
   const sampleContacts = [
     {
       firstName: 'Joe',
@@ -41,11 +39,13 @@ describe('<ContactList />', () => {
 
     it('should render zero contacts when contacts array is empty', () => {
       const listItem = shallow(<ContactList contacts={[]} />);
+
       expect(listItem.find('ContactInfo').length).toEqual(0);
     });
 
     it('should render "n" amount of  Contacts', () => {
       const listItem = shallow(<ContactList contacts={sampleContacts} />);
+
       expect(listItem.find('ContactInfo').length).toEqual(sampleContacts.length);
     });
   });

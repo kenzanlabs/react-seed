@@ -2,15 +2,18 @@
   "parserOptions": {
     "ecmaVersion": 6,
     "ecmaFeatures": {
+      "jsx": true
     },
     "sourceType": "module"
   },
-  "extends": [],
+  "extends": [
+    "plugin:react/recommended"
+  ],
   "env": {
     "browser": true,
     "node": true
   },
-  "plugins": [],
+  "plugins": ["react"],
   "rules": {
     "comma-dangle": [2,"never"],
     "no-cond-assign": 2,

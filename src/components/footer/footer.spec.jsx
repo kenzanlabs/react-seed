@@ -1,17 +1,12 @@
 import * as React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import Footer from './footer';
 
-describe('<Footer />', () => {
+describe('Footer Component', () => {
   let footer;
-  const footerClasses = ['w-100'];
-  const paragraphClasses = ['text-muted', 'text-center', 'my-2'];
-  const paragraphWrapperClasses = ['navbar-inverse', 'bg-inverse', 'fixed-bottom'];
 
   beforeEach(() => {
-    footer = shallow(
-      <Footer />
-    );
+    footer = shallow(<Footer />);
   });
 
   it('footer should have a "footer" element', () => {
@@ -25,25 +20,18 @@ describe('<Footer />', () => {
     expect(footer.state('copyright')).toEqual(`${startingYear} - ${currentYear}`);
   });
 
-  describe('<footer/>', () => {
-    let footerEl;
+  it('footer should have a "<a>" element', () => {
+    const hrefValue = 'http://www.github.com/kenzanlabs';
 
-    beforeEach(() => {
-      footerEl = footer.find('footer');
-    });
-
-    it('should render the copyright within a <p> element', () => {
-      const copyright = footer.state('copyright');
-
-      expect(footer.find('p').text().includes(copyright)).toBeTruthy();
-    });
-
-    it('footer should have a "<a>" element', () => {
-      const hrefValue = 'http://www.github.com/kenzanlabs';
-
-      expect(footer.find('a').length).toEqual(1);
-      expect(footer.find('a').text()).toMatch(/Kenzanlabs/);
-      expect(footer.find('a').prop('href')).toEqual(hrefValue);
-    });
+    expect(footer.find('a').length).toEqual(1);
+    expect(footer.find('a').text()).toMatch(/Kenzanlabs/);
+    expect(footer.find('a').prop('href')).toEqual(hrefValue);
   });
+
+  it('should render the copyright within a <p> element', () => {
+    const copyright = footer.state('copyright');
+
+    expect(footer.find('p').text().includes(copyright)).toBeTruthy();
+  });
+
 });

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import ContactInfo from './contactInfo';
 
 describe('<ContactInfo />', () => {
@@ -30,11 +30,11 @@ describe('<ContactInfo />', () => {
     image: 'http:www.randomImg.com/img.png'
   };
 
-  const  buildName = (firstName, middleName, lastName) => {
-    let _middleName= middleName ? ` ${middleName}` : '';
-    let _lastName= lastName ? ` ${lastName}` : '';
+  const buildName = (firstName, middleName, lastName) => {
+    let middle = middleName ? ` ${middleName}` : '';
+    let last = lastName ? ` ${lastName}` : '';
 
-    return `${firstName}${_middleName}${_lastName}`;
+    return `${firstName}${middle}${last}`;
   };
 
   it('should throw when contact prop is not passed', () => {
@@ -104,7 +104,7 @@ describe('<ContactInfo />', () => {
       });
 
       describe('contact has image prop', () => {
-        const {image} = caseImg;
+        const { image } = caseImg;
         const info = shallow(
           <ContactInfo contact={caseImg}/>
         );
@@ -144,7 +144,7 @@ describe('<ContactInfo />', () => {
     });
 
     describe('contact renders correctly when all properties are passed correctly', () => {
-      const {firstName, middleName, lastName, phone, image, email} = caseImg;
+      const { firstName, middleName, lastName, phone, image, email } = caseImg;
       let info;
 
       beforeEach(() => {
@@ -180,4 +180,5 @@ describe('<ContactInfo />', () => {
     });
 
   });
+
 });

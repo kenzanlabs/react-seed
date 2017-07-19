@@ -12,6 +12,7 @@ rm -rf node_modules/ > /dev/null 2>&1
 yarn install
 
 # build
+NODE_ENV=production
 yarn run clean
 #yarn run test -- --coverage
 yarn run build

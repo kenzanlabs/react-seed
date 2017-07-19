@@ -14,5 +14,5 @@ yarn install
 # build
 NODE_ENV=production
 yarn run clean
-#yarn run test -- --coverage
+yarn run test -- --coverage
 yarn run build

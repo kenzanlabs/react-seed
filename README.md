@@ -99,6 +99,11 @@ $ yarn run test
 file for unit tests. It will display a percentage of the files covered
 by the unit tests.
 
+For TDD, run
+```
+yarn run test -- --watch
+```
+
 ## Dependency Management
 All dependencies added or removed from the project must be done so through yarn
 

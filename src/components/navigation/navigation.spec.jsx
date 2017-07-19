@@ -1,14 +1,10 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import Navigation from './navigation';
-import { MemoryRouter, Link } from 'react-router-dom';
+import { MemoryRouter, Link } from 'react-router';
 
 describe('Navigation Component', () => {
-  const navigation = mount(
-    <MemoryRouter>
-      <Navigation />
-    </MemoryRouter>
-  );
+  const navigation = mount(<Navigation />);
 
   it('should have a <nav/> element', () => {
     const nav = navigation.find('nav');

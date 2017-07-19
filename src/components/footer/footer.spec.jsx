@@ -20,7 +20,7 @@ describe('Footer Component', () => {
     expect(footer.state('copyright')).toEqual(`${startingYear} - ${currentYear}`);
   });
 
-  it('footer should have a "<a>" element', () => {
+  it('footer should have a "<a>" element that links to Kenzan Labs GitHub', () => {
     const hrefValue = 'http://www.github.com/kenzanlabs';
 
     expect(footer.find('a').length).toEqual(1);

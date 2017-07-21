@@ -2,4 +2,9 @@
 
 $black: #000;
 $white: #ffffff;
-$activeBtn: red;
+$activeBtn: #009688;
+
+.main {
+  max-height: 72vh;
+  overflow: scroll;
+}

@@ -6,7 +6,7 @@ import * as React from 'react';
 import ContactList from '../../components/contactList/contactList';
 import ContactListForm from '../../components/contactListForm/contactListForm';
 
-import { getAvatar } from './../../services/contacts.service';
+import { getAvatar } from './../../services/gravatar.service';
 
 interface ContactInterface {
   firstName: string;
@@ -70,8 +70,9 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
           contact.image = url;
           this.setContacts(contact);
         })
-        .catch((e: {}) => {
-          console.log('Error =>', e);
+        .catch(e => {
+          console.log(e);
+          this.setContacts(contact);
         });
     } else {
       this.setContacts(contact);
@@ -98,11 +99,11 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
           </div>
           <ul className='list-group list-group-flush'>
             <li className='list-group-item'>
-              <span className='fa fa-phone text-muted c-info' data-toggle='tooltip' title={contact.phone}></span>
+              <span className='fa fa-phone text-muted c-info mr-1' data-toggle='tooltip' title={contact.phone}></span>
               <span className='visible-xs'> <span className='text-muted phone'>{ contact.phone}</span></span>
             </li>
             <li className='list-group-item'>
-              <span className='fa fa-comments text-muted c-info' data-toggle='tooltip' title={contact.email}></span>
+              <span className='fa fa-comments text-muted c-info mr-1' data-toggle='tooltip' title={contact.email}></span>
               <span className='visible-xs'> <span className='text-muted email'>{ contact.email}</span></span>
             </li>
           </ul>
@@ -131,7 +132,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
                 />
               }
             </div>
-             <div className='col-md-6 col-lg-8 d-inline-block hidden-sm-down'>
+             <div className='col-md-6 col-lg-8 d-inline-block hidden-sm-down h-75'>
                { this.renderContactCard(contacts[currentIndex]) }
              </div>
           </div>

@@ -1,0 +1,8 @@
+// Known Bootstrap bug https://github.com/twbs/bootstrap/pull/21722
+// Can be removed with the beta release v4.0.0-beta
+@media (max-width: 575px) {
+  .navbar > .container {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}

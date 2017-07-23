@@ -1,11 +1,11 @@
-import './contactListForm.scss';
+import './contacts-list-form.scss';
 import * as React from 'react';
 
-interface ContactListFormPropsInterface {
+interface ContactsListFormPropsInterface {
   onCancel: Function;
   onSubmit: Function;
 }
-interface ContactListFormStateInterface {
+interface ContactsListFormStateInterface {
 }
 interface ContactInterface {
   firstName?: string;
@@ -16,8 +16,8 @@ interface ContactInterface {
   [key: string]: string;
 }
 
-class ContactListForm extends React.Component<ContactListFormPropsInterface, ContactListFormStateInterface> {
-  constructor(props: ContactListFormPropsInterface) {
+class ContactsListForm extends React.Component<ContactsListFormPropsInterface, ContactsListFormStateInterface> {
+  constructor(props: ContactsListFormPropsInterface) {
     super(props);
   }
 
@@ -103,4 +103,4 @@ class ContactListForm extends React.Component<ContactListFormPropsInterface, Con
   }
 }
 
-export default ContactListForm;
+export default ContactsListForm;

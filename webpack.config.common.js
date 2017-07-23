@@ -34,7 +34,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loaders: [
-          'babel-loader?presets[]=es2015',
+          'babel-loader?presets[]=env',
           'awesome-typescript-loader'
         ],
         exclude: path.join(__dirname, 'node_modules')

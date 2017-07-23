@@ -17,7 +17,6 @@
   },
 
   "coverageDirectory": "<rootDir>/reports/test-coverage",
-  "coverageReporters": ["json", "lcov", "text"],
   "collectCoverageFrom": [
     "src/**/*.{ts,tsx,js}"
   ],

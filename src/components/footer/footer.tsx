@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import './footer.scss';
-
 interface FooterStateInterface {
   copyright: string;
 }

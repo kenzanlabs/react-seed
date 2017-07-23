@@ -18,7 +18,9 @@
 
   "coverageDirectory": "<rootDir>/reports/test-coverage",
   "collectCoverageFrom": [
-    "src/**/*.{ts,tsx,js}"
+    "src/components/**/*.{ts,tsx,js}",
+    "src/services/**/*.{ts,tsx,js}",
+    "src/views/**/*.{ts,tsx,js}"
   ],
   "coverageThreshold": {
     "global": {

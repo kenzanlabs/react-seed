@@ -96,7 +96,8 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
   }
 
   render(): JSX.Element {
-    const { contacts, currentIndex } = this.props;
+    const contacts: ContactInterface[] = this.props.contacts;
+    const currentIndex: number = this.props.currentIndex;
 
     return (
       <div className='container home'>

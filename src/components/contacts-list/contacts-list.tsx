@@ -1,18 +1,10 @@
 import * as React from 'react';
 import './contacts-list.scss';
+import { ContactInterface } from '../../services/contact.service';
 import ContactInfo from '../contact-info/contact-info';
 
-interface ContactsListInterface {
-  firstName: string;
-  middleName?: string;
-  email?: string;
-  lastName?: string;
-  phone?: string;
-  image?: string;
-}
-
 interface ContactsListPropsInterface {
-  contacts: ContactsListInterface[];
+  contacts: ContactInterface[];
   activeContactIndex: number;
   clickHandler: Function;
 }
@@ -22,7 +14,7 @@ interface ContactsListPropsInterface {
 const ContactsList: React.SFC<ContactsListPropsInterface> = (props) => {
   return (
     <div className='list-group contact-list text-left'>
-      {props.contacts.map((contact, index) => {
+      {props.contacts.map((contact: ContactInterface, index: number) => {
         return <ContactInfo
           id = {index}
           key = {index}

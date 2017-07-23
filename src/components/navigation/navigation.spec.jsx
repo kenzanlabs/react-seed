@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
-import Navigation from './navigation';
 import { Link } from 'react-router';
+import { mount } from 'enzyme';
+
+import Navigation from './navigation';
 
 describe('Navigation Component', () => {
   const navigation = mount(<Navigation />);

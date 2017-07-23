@@ -21,7 +21,6 @@
   "author": "rhernandez@kenzan.com",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.16.2",
     "bootstrap": "4.0.0-alpha.6",
     "font-awesome": "^4.7.0",
     "jsonp": "^0.2.1",
@@ -31,7 +30,6 @@
     "ts-md5": "^1.2.0"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/enzyme": "^2.8.2",
     "@types/jest": "^20.0.2",
     "@types/jsonp": "^0.2.0",

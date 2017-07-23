@@ -23,8 +23,8 @@ export function getAvatar(email: string): Promise<string> {
   return new Promise((resolve, reject) => {
     jsonp(url, null, (err: {}, data: EntryInterface) => {
       if (err) {
+        console.error(err);
         reject(err);
-        console.log('in reject');
       } else {
         resolve(data.entry[0].thumbnailUrl);
       }

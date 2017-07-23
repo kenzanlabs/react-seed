@@ -71,7 +71,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
           this.setContacts(contact);
         })
         .catch(e => {
-          console.log(e);
+          console.error(e);
           this.setContacts(contact);
         });
     } else {
@@ -84,8 +84,8 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
   }
 
   private buildName(firstName: string, middleName: string, lastName: string): string {
-    let _middleName: string = middleName ? ` ${middleName}` : '';
-    let _lastName: string = lastName ? ` ${lastName}` : '';
+    const _middleName: string = middleName ? ` ${middleName}` : '';
+    const _lastName: string = lastName ? ` ${lastName}` : '';
 
     return `${firstName}${_middleName}${_lastName}`;
   }

@@ -1,7 +1,7 @@
 import 'font-awesome/css/font-awesome.css';
-import './home.scss';
 import * as React from 'react';
 
+import './home.scss';
 import ContactService, { ContactInterface } from '../../services/contact.service';
 import ContactsList from '../../components/contacts-list/contacts-list';
 import ContactsListForm from '../../components/contacts-list-form/contacts-list-form';

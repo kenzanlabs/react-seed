@@ -1,5 +1,6 @@
-import './contacts-list-form.scss';
 import * as React from 'react';
+
+import './contacts-list-form.scss';
 
 interface ContactsListFormPropsInterface {
   onCancel: Function;

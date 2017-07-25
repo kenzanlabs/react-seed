@@ -9,6 +9,7 @@
     "develop": "webpack-dev-server --open --config ./webpack.config.develop.js",
     "lint": "eslint *.js src/**/*.spec.jsx",
     "serve": "npm run build && http-server ./build -o -p 9000",
+    "start": "npm run serve",
     "test": "jest --coverage --config ./jest.config.json"
   },
   "repository": {

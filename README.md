@@ -35,9 +35,9 @@ Also know as 'dot' files, these are the build and build configuration files for 
  * <i>.eslintr</i>c - linting rules for spec and build files
  * <i>package.json</i> - NPM / Yarn dependency configuration file, for
  build related dependencies and defines all runnable scripts and commands
- * <i>webpack.config.common.js<i/> - webpack config for managing shared webpack configurations
- * <i>webpack.config.develop.js<i/> - webpack config for local development
- * <i>webpack.config.prod.js<i/> - webpack config for production builds
+ * <i>webpack.config.common.js</i> - webpack config for managing shared webpack configurations
+ * <i>webpack.config.develop.js</i> - webpack config for local development
+ * <i>webpack.config.prod.js</i> - webpack config for production builds
 
 ### Application Files
 
@@ -89,6 +89,11 @@ $ yarn run serve
 ```
 ** Note: it is recommended you run this command from the master branch
 or a tag. By Default this proxies with the webpack-dev-server proxy. **
+
+This task is also aliased as:
+```
+$ yarn start
+```
 
 ### Tests
 To run unit tests run:

@@ -1,5 +1,5 @@
-import {Md5} from 'ts-md5/dist/md5';
 import jsonp = require('jsonp');
+import {Md5} from 'ts-md5/dist/md5';
 
 interface GravatarInterface {
   displayName?: string;

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import './contact-info.scss';
 import ContactService, { ContactInterface } from '../../services/contact.service';
 

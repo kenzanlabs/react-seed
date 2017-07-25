@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
+
 import ContactsListForm from './contacts-list-form';
 
 describe('Contacts List Form Component', () => {

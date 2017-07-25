@@ -1,7 +1,6 @@
-import 'font-awesome/css/font-awesome.css';
-import './bootstrap.scss';
 import * as React from 'react';
 
+import './bootstrap.scss';
 import { ContactInterface } from '../../services/contact.service';
 import Navigation from '../navigation/navigation';
 import Footer from '../footer/footer';

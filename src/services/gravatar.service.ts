@@ -15,19 +15,22 @@ interface EntryInterface {
   entry?: GravatarInterface[];
 }
 
-export function getAvatar(email: string): Promise<string> {
-  const gravatarUrl: string = '//www.gravatar.com/';
-  const emailHash: string = Md5.hashStr(email).toString();
-  const url: string = `${gravatarUrl}${emailHash}.json`;
+export default class GravatarService {
+  private static readonly gravatarUrl: string = '//www.gravatar.com/';
 
-  return new Promise((resolve, reject) => {
-    jsonp(url, null, (err: {}, data: EntryInterface) => {
-      if (err) {
-        console.error(err);
-        reject(err);
-      } else {
-        resolve(data.entry[0].thumbnailUrl);
-      }
+  public static getAvatar(email: string): Promise<string> {
+    const emailHash: string = Md5.hashStr(email).toString();
+    const url: string = `${this.gravatarUrl}${emailHash}.json`;
+
+    return new Promise((resolve, reject) => {
+      jsonp(url, null, (err: {}, data: EntryInterface) => {
+        if (err) {
+          console.error(err);
+          reject(err);
+        } else {
+          resolve(data.entry[0].thumbnailUrl);
+        }
+      });
     });
-  });
+  }
 }

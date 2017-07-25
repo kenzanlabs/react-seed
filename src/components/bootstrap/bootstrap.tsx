@@ -1,8 +1,8 @@
 import 'font-awesome/css/font-awesome.css';
 import './bootstrap.scss';
-
 import * as React from 'react';
 
+import { ContactInterface } from '../../services/contact.service';
 import Navigation from '../navigation/navigation';
 import Footer from '../footer/footer';
 
@@ -12,15 +12,6 @@ interface BootstrapStateInterface {
 }
 
 interface BootstrapPropsInterface {
-}
-
-interface ContactInterface {
-  firstName: string;
-  middleName?: string;
-  email?: string;
-  lastName?: string;
-  phone?: string;
-  id?: number;
 }
 
 export default class Bootstrap extends React.Component<BootstrapPropsInterface, BootstrapStateInterface> {

@@ -1,29 +1,20 @@
-import './contactList.scss';
 import * as React from 'react';
+import './contacts-list.scss';
+import { ContactInterface } from '../../services/contact.service';
+import ContactInfo from '../contact-info/contact-info';
 
-import ContactInfo from '../contactInfo/contactInfo';
-
-interface ContactListInterface {
-  firstName: string;
-  middleName?: string;
-  email?: string;
-  lastName?: string;
-  phone?: string;
-  image?: string;
-}
-
-interface ContactListPropsInterface {
-  contacts: ContactListInterface[];
+interface ContactsListPropsInterface {
+  contacts: ContactInterface[];
   activeContactIndex: number;
   clickHandler: Function;
 }
 
 // TODO, naming convention for variables to be exported TS
 // tslint:disable-next-line
-const ContactList: React.SFC<ContactListPropsInterface> = (props) => {
+const ContactsList: React.SFC<ContactsListPropsInterface> = (props) => {
   return (
     <div className='list-group contact-list text-left'>
-      {props.contacts.map((contact, index) => {
+      {props.contacts.map((contact: ContactInterface, index: number) => {
         return <ContactInfo
           id = {index}
           key = {index}
@@ -37,4 +28,4 @@ const ContactList: React.SFC<ContactListPropsInterface> = (props) => {
 
 };
 
-export default ContactList;
+export default ContactsList;

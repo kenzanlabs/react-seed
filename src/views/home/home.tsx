@@ -1,22 +1,11 @@
 import 'font-awesome/css/font-awesome.css';
 import './home.scss';
-
 import * as React from 'react';
 
-import ContactList from '../../components/contactList/contactList';
-import ContactListForm from '../../components/contactListForm/contactListForm';
-
-import { getAvatar } from './../../services/gravatar.service';
-
-interface ContactInterface {
-  firstName: string;
-  middleName?: string;
-  email?: string;
-  lastName?: string;
-  phone?: string;
-  id?: number;
-  image?: string;
-}
+import ContactService, { ContactInterface } from '../../services/contact.service';
+import ContactsList from '../../components/contacts-list/contacts-list';
+import ContactsListForm from '../../components/contacts-list-form/contacts-list-form';
+import GravatarService from '../../services/gravatar.service';
 
 interface HomeStateInterface {
   isFormOpen: boolean;
@@ -29,6 +18,7 @@ interface HomePropsInterface {
 }
 
 export default class Home extends React.Component<HomePropsInterface, HomeStateInterface> {
+
   constructor(props: HomePropsInterface) {
     super(props);
 
@@ -65,7 +55,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     contact.id = this.props.contacts.length;
 
     if (contact.email) {
-      getAvatar(contact.email)
+      GravatarService.getAvatar(contact.email)
         .then((url: string) => {
           contact.image = url;
           this.setContacts(contact);
@@ -83,19 +73,12 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
     this.updateContacts(this.props.contacts, index);
   }
 
-  private buildName(firstName: string, middleName: string, lastName: string): string {
-    const _middleName: string = middleName ? ` ${middleName}` : '';
-    const _lastName: string = lastName ? ` ${lastName}` : '';
-
-    return `${firstName}${_middleName}${_lastName}`;
-  }
-
   private renderContactCard (contact: ContactInterface): JSX.Element {
     if (contact) {
       return (
         <div className='card'>
           <div className='card-block'>
-            <h2 className='card-title'>{this.buildName(contact.firstName, contact.middleName, contact.lastName)}</h2>
+            <h2 className='card-title'>{ContactService.buildName(contact)}</h2>
           </div>
           <ul className='list-group list-group-flush'>
             <li className='list-group-item'>
@@ -113,7 +96,8 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
   }
 
   render(): JSX.Element {
-    const { contacts, currentIndex } = this.props;
+    const contacts: ContactInterface[] = this.props.contacts;
+    const currentIndex: number = this.props.currentIndex;
 
     return (
       <div className='container home'>
@@ -125,7 +109,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
             </div>
             <div className='col-12 col-md-6 col-lg-4 text-center d-inline-block'>
               {
-                <ContactList
+                <ContactsList
                   contacts={contacts}
                   activeContactIndex={currentIndex}
                   clickHandler={this.selectContact.bind(this)}
@@ -139,7 +123,7 @@ export default class Home extends React.Component<HomePropsInterface, HomeStateI
         }
         {
           this.state.isFormOpen &&
-          <ContactListForm onCancel={this.cancelNewContact.bind(this)} onSubmit={this.onNewContactSubmit.bind(this)}/>
+          <ContactsListForm onCancel={this.cancelNewContact.bind(this)} onSubmit={this.onNewContactSubmit.bind(this)}/>
         }
       </div>
     );

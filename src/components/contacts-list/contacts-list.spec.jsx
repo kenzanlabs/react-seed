@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import ContactList from './contactList';
+import ContactsList from './contacts-list';
 
 describe('Contact List Component', () => {
-  const list = shallow(<ContactList contacts={[]}/>);
+  const list = shallow(<ContactsList contacts={[]}/>);
   const sampleContacts = [
     {
       firstName: 'Joe',
@@ -38,13 +38,13 @@ describe('Contact List Component', () => {
   describe('should render a <ContactInfo/> component per each contact passed in the contacts prop', () => {
 
     it('should render zero contacts when contacts array is empty', () => {
-      const listItem = shallow(<ContactList contacts={[]} />);
+      const listItem = shallow(<ContactsList contacts={[]} />);
 
       expect(listItem.find('ContactInfo').length).toEqual(0);
     });
 
     it('should render "n" amount of  Contacts', () => {
-      const listItem = shallow(<ContactList contacts={sampleContacts} />);
+      const listItem = shallow(<ContactsList contacts={sampleContacts} />);
 
       expect(listItem.find('ContactInfo').length).toEqual(sampleContacts.length);
     });
@@ -52,19 +52,19 @@ describe('Contact List Component', () => {
 
   describe('contacts prop datatype checking', () => {
     it('should throw an error when a string is passed, case "contacts"', () => {
-      const fn = () => shallow(<ContactList contacts={'contacts'}/>);
+      const fn = () => shallow(<ContactsList contacts={'contacts'}/>);
 
       expect(fn).toThrow();
     });
 
     it('should throw an error when a number is passed case "1"', () => {
-      const fn = () => shallow(<ContactList contacts={1}/>);
+      const fn = () => shallow(<ContactsList contacts={1}/>);
 
       expect(fn).toThrow();
     });
 
     it(`should throw an error when a object is passed case ${sampleContacts[0]}`, () => {
-      const fn = () => shallow(<ContactList contacts={sampleContacts[0]}/>);
+      const fn = () => shallow(<ContactsList contacts={sampleContacts[0]}/>);
 
       expect(fn).toThrow();
     });

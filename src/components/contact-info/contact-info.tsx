@@ -1,32 +1,17 @@
 import * as React from 'react';
-import './contactInfo.scss';
-
-interface ContactInfoInterface {
-  firstName: string;
-  middleName?: string;
-  email?: string;
-  lastName?: string;
-  phone?: string;
-  image?: string;
-}
+import './contact-info.scss';
+import ContactService, { ContactInterface } from '../../services/contact.service';
 
 interface ContactInfoPropsInterface {
-  contact: ContactInfoInterface;
+  contact: ContactInterface;
   id: number;
   isActive: boolean;
   clickHandler: Function;
 }
 
-function buildName(firstName: string, middleName: string, lastName: string): string {
-  let _middleName: string = middleName ? ` ${middleName}` : '';
-  let _lastName: string = lastName ? ` ${lastName}` : '';
-
-  return `${firstName}${_middleName}${_lastName}`;
-}
-
 // tslint:disable-next-line
 const ContactInfo: React.SFC<ContactInfoPropsInterface> = ({contact, isActive, id, clickHandler}) => {
-  const { firstName, middleName, email, lastName, phone, image } = contact;
+  const { firstName, email, phone, image } = contact;
   const userIcon = <i className='fa fa-user-circle-o fa-4x mx-auto' aria-hidden='true'></i>;
 
   function _handleClick(): void {
@@ -39,7 +24,7 @@ const ContactInfo: React.SFC<ContactInfoPropsInterface> = ({contact, isActive, i
         { image ? <img src={ image } alt={ firstName } className='img-fluid rounded-circle' /> : userIcon }
       </div>
       <div className='col-9'>
-        <h2 className='name'>{ buildName(firstName, middleName, lastName) }</h2>
+        <h2 className='name'>{ ContactService.buildName(contact) }</h2>
         <span className='fa fa-phone text-muted c-info' data-toggle='tooltip' title={ phone }></span>
         <span className='visible-xs'> <span className='text-muted phone'>{ phone }</span></span>
         <span className='fa fa-comments text-muted c-info' data-toggle='tooltip' title={email}></span>

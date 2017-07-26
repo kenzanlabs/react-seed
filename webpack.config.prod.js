@@ -1,7 +1,7 @@
 const commonConfig = require('./webpack.config.common');
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const WebpackMd5Hash = require('webpack-md5-hash');
-const webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
   output: {

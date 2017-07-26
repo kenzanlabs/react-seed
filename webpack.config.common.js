@@ -1,9 +1,9 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const chalk = require('chalk');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -30,11 +30,9 @@ module.exports = {
 
   module: {
     rules: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       {
         test: /\.tsx?$/,
         loaders: [
-          'babel-loader?presets[]=es2015',
           'awesome-typescript-loader'
         ],
         exclude: path.join(__dirname, 'node_modules')
@@ -43,16 +41,6 @@ module.exports = {
         test: /\.tsx?$/,
         enforce: 'pre',
         loader: 'tslint-loader',
-        exclude: /node_modules/
-      },
-      {
-        enforce: 'pre', test: /\.js$/,
-        loader: 'source-map-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.js$/,
-        use: ['babel-loader', 'source-map-loader'],
         exclude: /node_modules/
       },
       {

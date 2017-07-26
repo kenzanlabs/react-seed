@@ -34,3 +34,5 @@ build
 
 
 test-report.xml
+
+.awcache/

@@ -1,4 +1,4 @@
-# react-seed
+# react-webpack-stack
 
 A seed / starter repo for React based UI applications
 ## Project Setup

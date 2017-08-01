@@ -1,8 +1,8 @@
 {
-  "name": "react-seed",
+  "name": "react-webpack-stack",
   "version": "0.1.0",
-  "description": "This is the seed repo for FrontEnd project for Kenzan.com - Linux.com learning series.",
-  "main": "index.js",
+  "description": "A sample project showcasing Yarn, webpack and TypeScript with React for the Linux.com article series.",
+  "main": "src/index.js",
   "scripts": {
     "build": "npm run clean && npm run lint && webpack --config ./webpack.config.prod.js -p",
     "clean": "rimraf ./build && rimraf ./reports && mkdir ./reports && mkdir ./reports/test-results",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:kenzanlabs/react-seed.git"
+    "url": "git@github.com:kenzanlabs/react-webpack-stack.git"
   },
   "keywords": [
     "kenzanlabs"

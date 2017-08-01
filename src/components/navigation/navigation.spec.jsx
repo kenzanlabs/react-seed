@@ -21,8 +21,8 @@ describe('Navigation Component', () => {
     });
 
     it('should have a brand Link element', () => {
-      const brandLink = <Link className='navbar-brand' to='/'>React Seed</Link>;
-      const brandTitle = 'React Seed';
+      const brandLink = <Link className='navbar-brand' to='/'>React Webpack Stack</Link>;
+      const brandTitle = 'React Webpack Stack';
 
       expect(nav.contains(brandLink)).toBeTruthy();
       expect(nav.find('Link').first().text()).toEqual(brandTitle);

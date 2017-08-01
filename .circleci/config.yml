@@ -1,12 +1,26 @@
-machine:
-  timezone: America/New_York
-  node:
-    version: 4.0.0
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    machine:
+      node:
+        version: 6.10.0
+      environment:
+        PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 
-dependencies:
-  override:
-    - npm install
+    working_directory: ~/repo
 
-test:
-  override:
-    - npm test
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install

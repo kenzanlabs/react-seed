@@ -25,4 +25,4 @@ jobs:
 
       - run:
           name: yarn
-          command: yarn install
+          command: yarn

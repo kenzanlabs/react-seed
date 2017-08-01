@@ -28,9 +28,5 @@ jobs:
           command: npm install -g yarn@0.24.6
 
       - run:
-          name: Install Project Dependencies
-          command: yarn install
-
-      - run:
           name: Execute the Build
           command: bin/build.sh

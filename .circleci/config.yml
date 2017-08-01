@@ -24,5 +24,9 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: yarn
-          command: yarn
+          name: install yarn
+          command: npm install -g yarn@0.24.6
+
+      - run:
+          name: yarn install
+          command: yarn install

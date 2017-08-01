@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# make sure CircleCI fails the build if this build script fails
+set -euo pipefail
+
 echo 'node version'
 node -v
 echo 'npm version'

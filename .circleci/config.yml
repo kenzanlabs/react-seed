@@ -24,13 +24,13 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: install yarn
+          name: Install Yarn
           command: npm install -g yarn@0.24.6
 
       - run:
-          name: install dependencies
+          name: Install Project Dependencies
           command: yarn install
 
       - run:
-          name: running the build
+          name: Execute the Build
           command: bin/build.sh

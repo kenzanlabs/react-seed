@@ -5,22 +5,20 @@ const WebpackMd5Hash = require('webpack-md5-hash');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = webpackMerge(commonConfig, {
-  output: {
-    chunkFilename: '[chunkhash].[id].chunk.js'
-  },
   bail: true,
+  profile: true,
+
   module: {
     rules: [
       {
         test: /\.(s*)css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
           use: ['css-loader', 'sass-loader']
         })
       }
     ]
   },
-  profile: true,
+
   plugins: [
     new WebpackMd5Hash(),
 
@@ -33,7 +31,7 @@ module.exports = webpackMerge(commonConfig, {
     }),
 
     new ExtractTextPlugin({
-      filename: 'styles.css',
+      filename: 'styles.[chunkhash].css',
       allChunks: true
     })
   ]

@@ -3,8 +3,18 @@ const webpackMerge = require('webpack-merge');
 const webpack = require('webpack');
 
 module.exports = webpackMerge(commonConfig, {
+
   output: {
     filename: '[name].bundle.js'
+  },
+
+  module: {
+    ruless: [
+      {
+        test: /\.(s*)css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
+      }
+    ]
   },
 
   devServer: {

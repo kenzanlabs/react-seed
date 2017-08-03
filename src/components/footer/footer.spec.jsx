@@ -22,7 +22,7 @@ describe('Footer Component', () => {
     expect(footer.state('copyright')).toEqual(copyright);
   });
 
-  it('footer should have a "<a>" element that links to Kenzan Labs GitHub', () => {
+  it('footer should have a "<a>" element that links to the Kenzan website', () => {
     const hrefValue = 'http://www.kenzan.com/';
 
     expect(footer.find('a').length).toEqual(1);

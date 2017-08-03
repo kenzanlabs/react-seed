@@ -1,5 +1,3 @@
-import '../node_modules/bootstrap/scss/bootstrap.scss';
-
 import * as React from 'react';
 import { render } from 'react-dom';
 import { IndexRoute, Router, Route, browserHistory } from 'react-router';

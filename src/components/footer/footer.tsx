@@ -25,7 +25,7 @@ export default class Footer extends React.Component<FooterPropsInterface, Footer
         <div className='navbar-inverse bg-inverse fixed-bottom'>
           <p className='text-muted text-center my-2'> {this.state.copyright}
             <br/>
-            <a href='http://www.github.com/kenzanlabs'>&copy; Kenzanlabs</a>
+            <a href='http://www.kenzan.com'>&copy; 2017 Kenzan, LLC</a>
           </p>
         </div>
       </footer>

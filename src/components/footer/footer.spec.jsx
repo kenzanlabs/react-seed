@@ -15,17 +15,18 @@ describe('Footer Component', () => {
   });
 
   it('should set the initial value for state.copyright', () => {
-    const startingYear = 2014;
+    const startingYear = 2017;
     const currentYear = new Date().getFullYear();
+    const copyright = startingYear === currentYear ? currentYear.toString() : `${startingYear} - ${currentYear}`;
 
-    expect(footer.state('copyright')).toEqual(`${startingYear} - ${currentYear}`);
+    expect(footer.state('copyright')).toEqual(copyright);
   });
 
   it('footer should have a "<a>" element that links to Kenzan Labs GitHub', () => {
-    const hrefValue = 'http://www.github.com/kenzanlabs';
+    const hrefValue = 'http://www.kenzan.com/';
 
     expect(footer.find('a').length).toEqual(1);
-    expect(footer.find('a').text()).toMatch(/Kenzanlabs/);
+    expect(footer.find('a').text()).toMatch(/Kenzan/);
     expect(footer.find('a').prop('href')).toEqual(hrefValue);
   });
 

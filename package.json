@@ -1,6 +1,6 @@
 {
   "name": "react-webpack-stack",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A sample project showcasing Yarn, webpack and TypeScript with React for the Linux.com article series.",
   "main": "src/index.js",
   "scripts": {

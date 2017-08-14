@@ -113,7 +113,7 @@ $ yarn run test
 
 This command uses <i>jest.config.json</i> as a configuration file for unit tests. It will display a percentage of the files covered by the unit tests.
 
-**Note:** Jest automatically uses the correct test mode for the current build environment. For a development build, tests are run in TDD (test-driven development) mode. For a production build, tests are run in CI (continuous integration) mode. CI mode runs all tests once using the Chrome browser. TDD runs the same tests, and also runs tests using PhantomJS.
+**Note:** Jest automatically uses the correct test mode for the current build environment. For a development build, tests are run in TDD (test-driven development) mode. For a production build, tests are run in CI (continuous integration) mode. CI mode runs all tests once using PhantomJS, while TDD runs the same tests using the Chrome browser.
 
 ## Dependency Management
 

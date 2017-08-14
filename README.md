@@ -10,13 +10,13 @@ We recommend using a JavaScript-based IDE (like WebStorm) as they provide code q
 
 1. If you don't already have it, download and install NodeJS 6.4.0 or later. (Installing NodeJS will also install npm.)
 
-1. This project favors Yarn, so make sure you have the latest.
+2. This project favors Yarn, so make sure you have the latest.
 
   ```
   $ npm install -g yarn@0.24.6
   ```
 
-1. Install the build and application dependencies.
+3. Install the build and application dependencies.
 
   ```
   $ yarn install
@@ -34,8 +34,11 @@ Also know as *dot* files, these are the build and the build configuration files 
  * <i>.babelrc</i> - Configuration file for Babel preproccessor.
  * <i>.editorconfig</i> - Configuration file for EditorConfig IDE plugin.
  * <i>.eslintr</i>c - Linting rules for spec and build files.
+ * <i>jest.config.js</i> - Configuration file for Jest (test runner).
  * <i>package.json</i> - NPM / Yarn dependency configuration file, for
  build related dependencies. This defines all runnable scripts and commands.
+ * <i>tsconfig.json</i> - Configuration file for the TypeScript compiler.
+ * <i>tslint.json</i> - Linting rules for the TypeScript source code.
  * <i>webpack.config.common.js</i> - Webpack config for managing shared webpack configurations.
  * <i>webpack.config.develop.js</i> - Webpack config for local development.
  * <i>webpack.config.prod.js</i> - Webpack config for production builds.
@@ -74,7 +77,7 @@ which watches for changes and re-deploys as needed.
 $ yarn run develop
 ```
 
-The webpack-dev-server automatically opens a browser window to ```localhost:9000```.
+webpack-dev-server automatically opens a browser window to ```localhost:9000```.
 
 ### Production
 
@@ -108,13 +111,9 @@ To execute unit tests run:
 $ yarn run test
 ```
 
-**Note:** This command uses <i>jest.cofig.json</i> as a configuration file for unit tests. It will display a percentage of the files covered by the unit tests.
+This command uses <i>jest.config.json</i> as a configuration file for unit tests. It will display a percentage of the files covered by the unit tests.
 
-For TDD run:
-
-```
-yarn run test -- --watch
-```
+**Note:** Jest automatically uses the correct test mode for the current build environment. For a development build, tests are run in TDD (test-driven development) mode. For a production build, tests are run in CI (continuous integration) mode. CI mode runs all tests once using the Chrome browser. TDD runs the same tests, and also runs tests using PhantomJS.
 
 ## Dependency Management
 
